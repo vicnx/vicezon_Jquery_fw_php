@@ -1,0 +1,89 @@
+/* MAP */
+#map {
+height: 700px;
+/* The height is 400 pixels */
+width: 100%;
+/* The width is the width of the web page */
+}
+/* CONTACT FORM */
+.contact_form{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    width: 100%;
+    height: 700px;
+    margin-bottom: 20px;
+}
+.contact_form_map{
+    float: right;
+    background-color: red;
+    width: 50%;
+}
+.contact_form_form{
+    display: flex;
+    align-items: center;
+    width: 50%;
+    flex-direction: column;
+
+}
+#contact_form_form_title{
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 40px;
+    color: black;
+}
+.form{
+    width: 401px;
+    text-align: center;
+}
+.input_form_doble{
+    padding: 10px;
+    height: 50px;
+    width: 50%;
+    position: relative;
+    border: 1px solid #e6e6e6;
+}
+.text_area_contact{
+    min-height: 139px;
+    padding-top: 19px;
+    padding-bottom: 15px;
+    display: block;
+    width: 100%;
+    background: 0 0;
+    font-size: 18px;
+    line-height: 1.2;
+    padding: 10px;
+    border: 1px solid #e6e6e6;
+}
+.input_double{
+    display: flex;
+}
+.input_form{
+    padding: 10px;
+    height: 50px;
+    width: 100%;
+    position: relative;
+    border: 1px solid #e6e6e6;
+}
+.input_form::placeholder{
+    color: rgb(170, 170, 170);
+}
+.input_form_doble::placeholder{
+    color: rgb(170, 170, 170);
+}
+.label_form{
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 55px;
+    border: 1px solid #e6e6e6;
+    border-bottom: none;
+    padding: 10px 25px;
+    margin-top: 15px;
+    margin-bottom: 0;
+}

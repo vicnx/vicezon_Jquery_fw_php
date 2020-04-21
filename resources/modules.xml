@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modules>
+    <module>
+        <name>admin</name>
+        <uri>admin</uri>
+    </module>
+    <module>
+    <!-- STO LO VE EL CLIENTÊ-->
+        <name>client</name>
+        <uri>client</uri>
+    </module>
+</modules>
