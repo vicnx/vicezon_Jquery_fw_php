@@ -1,0 +1,10 @@
+-------------------------- Ohana_Dogs ----------------------------
+- Home: search/categ/scroll_button/list/details_modal
+- Adoptions: search/list/details_modal/pager/login: adoptar
+- Contact
+- Login: signin/signup/recover_passwd/social_auth: Auth0
+    - Create_dogs: dropzone
+    - Ubication: idem hotels_search_gmaps/infoview/details_modal
+    - Profile: dropzone/MisAdopciones/visible_mydogs
+- localstorage token -> p.e. profile
+- toastr
