@@ -10,7 +10,7 @@ function handlerRouter() {
         // $URI_module = 'home';
         $URI_module = 'contact';
         /////PREGUNTAR
-        // echo'<script>window.location.href = "./home/list_home/";</script>';
+        echo'<script>window.location.href = "./contact/list_contact/";</script>';
         /////PREGUNTAR
     }
 

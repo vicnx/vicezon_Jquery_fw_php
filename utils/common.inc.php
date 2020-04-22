@@ -2,7 +2,7 @@
 function loadView($pathview = '', $html_name = '', $arrPassValue = '') {
     $view_path = $pathview . $html_name;
     // $arrData = '';
-    echo $view_path;
+    // echo $view_path;
     if (file_exists($view_path)) {
         // if (isset($arrPassValue))
         //     $arrData = $arrPassValue;

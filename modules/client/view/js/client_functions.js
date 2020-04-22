@@ -34,7 +34,7 @@ function menu_clicks(){
     })
     // FUNCTIONES MENU
     $('#contact').on("click",function(){
-        location.href = "index.php?page=contact";
+        location.href = pretty("?module=contact&function=list_contact");
     })
     $('#home').on("click",function(){
         location.href = "index.php";
@@ -112,8 +112,8 @@ function set_avatar(){
     })
 }
 $(document).ready(function() {
-    client_check();
-    adminpanel();
+    // client_check();
+    // adminpanel();
     menu_clicks();
-    set_avatar();
+    // set_avatar();
 });
