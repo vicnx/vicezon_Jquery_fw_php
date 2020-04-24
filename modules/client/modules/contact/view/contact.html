@@ -5,27 +5,23 @@
                 <div id="map"></div>
             </div>
             <div class="contact_form_form">
-                <form class="form">
+                <form id="form_contact" class="form">
                     <span id="contact_form_form_title">Contact US</span>
                     <label class="label_form">TELL US YOUR NAME*</label>
                     <div class="input_double">
-                        <input name="name" type="text" placeholder="Your Name" class="input_form_doble"/>
-                        <input name="surname" type="text" placeholder="Your Surname" class="input_form_doble"/>
+                        <input id="contact_name" name="contact_name" type="text" placeholder="Your Name" class="input_form_doble" value="Vicente"/>
+                        <input id="contact_surname" name="contact_surname" type="text" placeholder="Your Surname" class="input_form_doble" value="Andani"/>
                     </div>
                     <div class="input_single">
                         <label class="label_form">TELL US YOUR EMAIL*</label>
-                        <input name="email" type="text" placeholder="Eg. example@vicezon.com" class="input_form"/>
-                    </div>
-                    <div class="input_single">
-                        <label class="label_form">TELL US YOUR Phone*</label>
-                        <input name="phone" type="text" placeholder="Eg. +34 657463746" class="input_form"/>
+                        <input id="contact_email" name="contact_email" type="text" placeholder="Eg. example@vicezon.com" class="input_form" value="andanivicente@gmail.com"/>
                     </div>
                     <div class="input_single">
                         <label class="label_form">Message*</label>
-                        <textarea class="text_area_contact input_form"name="message" type="text" placeholder="Write us a message..."></textarea>
+                        <textarea id="contact_msg" class="text_area_contact input_form" name="contact_msg" type="text" placeholder="Write us a message..." value="">Lorem ipsum dolor sit amet consectetur,</textarea>
                     </div>
                     <div class="input_boton">
-                        <a class="btn btn-dark pull-right">Send</a>
+                        <a id="send" class="btn btn-dark pull-right">Send</a>
                     </div>
                 </form>
             </div>

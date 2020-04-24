@@ -26,6 +26,11 @@
 
 <!-- BOTTPAGE -->
 <script type="text/javascript" src="<?php echo CLIENT_VIEW_LIBRARIES ?>Jquery/bootpage/jquery.bootpag.min.js"></script>
+
+<!-- TOASTR -->
+<script type="text/javascript" src="<?php echo CLIENT_VIEW_LIBRARIES ?>toastr/build/toastr.min.js"></script>
+<link rel="stylesheet" href="<?php echo CLIENT_VIEW_LIBRARIES ?>toastr/build/toastr.css">
+
 <!-- CART FALTA POR MODIFICAR--> 
 <!-- solo lo necesario -->
 <!-- <script src="module/client/module/cart/view/js/cart.js"></script> -->
