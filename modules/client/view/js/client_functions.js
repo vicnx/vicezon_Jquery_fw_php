@@ -34,7 +34,7 @@ function menu_clicks(){
     })
     // FUNCTIONES MENU
     $('#contact').on("click",function(){
-        location.href = pretty("?module=contact&function=list_contact");
+        location.href = pretty("?module=contact");
     })
     $('#home').on("click",function(){
         location.href = "index.php";

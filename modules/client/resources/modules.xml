@@ -3,9 +3,11 @@
     <module>
         <name>home</name>
         <uri>home</uri>
+        <default_function>list_home</default_function>
     </module>
     <module>
         <name>contact</name>
         <uri>contact</uri>
+        <default_function>list_contact</default_function>
     </module>
 </modules>
