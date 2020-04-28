@@ -18,7 +18,7 @@ function handlerRouter() {
     if (!empty($_GET['function'])) {
         $URI_function = $_GET['function'];
     } else {
-        $URI_function = 'default';
+        $URI_function = 'default';//si no hay nada lo pone en default para despues declararla
         // $URI_function = 'list_home';
     }
     handlerModule($URI_module, $URI_function);
