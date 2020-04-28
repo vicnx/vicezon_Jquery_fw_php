@@ -48,5 +48,10 @@
         define('CLIENT_CONTACT_CSS', CLIENT_CONTACT_PATH . 'view/css/');
         //JS CONTACT (SITE_PATH)
         define('CLIENT_CONTACT_JS', CLIENT_CONTACT_PATH . 'view/js/');
-
+        
+        //MODULE HOME
+        //VIEW PATH HOME (view del home) (SITE_ROOT)
+        define('CLIENT_HOME_VIEW_PATH', CLIENT_MODULES_PATH . 'home/view/');
+        //HOME PATH (SITE_PATH)
+        define('CLIENT_HOME_PATH', CLIENT_SITE_PATH . 'modules/home/');
 ?>
