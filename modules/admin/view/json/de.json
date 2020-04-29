@@ -1,0 +1,29 @@
+{
+    "strings": {
+        "Homepage": "Starten",
+        "Tablets": "Tablette",
+        "About Us": "Über uns",
+        "Services": "Dienstleistungen",
+        "Contact Us": "Kontakt",
+        "English": "Englisch",
+        "Spanish": "Spanisch",
+        "German": "Deutsch",
+        "Create Tablet": "Tablet erstellen",
+        "Dummies": "Narren",
+        "<b>Name</b>": "<b>Vorname</b>",
+        "<b>Price</b>": "<b>Preis</b>",
+        "<b>Option</b>": "<b>Option</b>",
+        "Logout": "Abmelden",
+        "There is no tablet": "Es gibt keine Tablette",
+        "sProcessing": "Verarbeitung...",
+        "sLengthMenu": "_MENU_ Datensätze anzeigen",
+        "sZeroRecords": "Keine Ergebnisse gefunden",
+        "sInfo": "Anzeigen von _START_ bis _END_ von _TOTAL_ Datensätzen",
+        "sInfoEmpty": "Es gibt keine Aufzeichnungen",
+        "sInfoFiltered": "(Filtern von insgesamt _MAX_ Zeilen)",
+        "sInfoPostFix": "",
+        "sSearch": "Suche:",
+        "sUrl": "",
+        "Create new brand": "Neue Marke erstellen"
+    }
+}

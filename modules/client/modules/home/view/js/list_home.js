@@ -1,11 +1,12 @@
 function carousel(){
     $.ajax({ 
         type: 'GET', 
-        url: '/vicezon/module/client/module/home/controller/controller_home.php?op=toptablets',
+        url: pretty('?module=home&function=carousel_home'),
         async:false, 
         dataType: 'json',
         data:{},//idproduct es lo que guardamos para coger en el get LUEGO EL GET TIENE QUE SER ASI ($_GET['idproduct']); y el id ES EL ATRIBUTO
         success: function (data) { 
+            console.log(data);
             for (var i = 0; i < 10; i++) {
                 $('#top-tablets').append(
                     '<div class="item" id='+data[i].idproduct+'>'+
@@ -31,7 +32,7 @@ function carousel(){
              }
         },
         error: function(){
-            console.log("error");
+            console.log("Error ajax js");
         }
     });
     $('.owl-carousel').owlCarousel({
@@ -231,10 +232,10 @@ function clicks_news_home(){
 $(document).ready(function() {
     menu();
     carousel();
-    get_products_views();
-    loadmoreview();
-    get_brands_views();
-    more_brands();
-    news_home();
-    clicks_news_home();
+    // get_products_views();
+    // loadmoreview();
+    // get_brands_views();
+    // more_brands();
+    // news_home();
+    // clicks_news_home();
 })

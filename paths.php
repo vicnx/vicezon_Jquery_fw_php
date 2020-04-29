@@ -18,6 +18,9 @@
     //JS APLICACION
     define('JS_PATH', SITE_PATH . 'view/js/');
 
+    //model
+    define('MODEL_PATH', SITE_ROOT . 'model/');
+
     //ADMIN
     //SITE_PATH ADMIN (SITE_PATH)
     define('ADMIN_SITE_PATH', SITE_PATH . "modules/admin/");   
@@ -54,4 +57,6 @@
         define('CLIENT_HOME_VIEW_PATH', CLIENT_MODULES_PATH . 'home/view/');
         //HOME PATH (SITE_PATH)
         define('CLIENT_HOME_PATH', CLIENT_SITE_PATH . 'modules/home/');
+        //HOME/MODEL/MODEL (SITE_ROOT)
+        define('CLIENT_MODEL_HOME', CLIENT_MODULES_PATH . 'home/model/model/');
 ?>

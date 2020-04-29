@@ -1,5 +1,6 @@
 <?php
 require_once("paths.php");
+require 'autoload.php';
 include(UTILS . "common.inc.php"); //carga el loadview
 include(UTILS . "mail.inc.php"); //cargamos el mail
 
@@ -9,9 +10,9 @@ function handlerRouter() {
         $URI_module = $_GET['module'];
     } else {
         // $URI_module = 'home';
-        $URI_module = 'contact';
+        $URI_module = 'home';
         /////PREGUNTAR
-        echo'<script>window.location.href = "./contact/list_contact/";</script>';
+        echo'<script>window.location.href = "./home";</script>';
         /////PREGUNTAR
     }
 

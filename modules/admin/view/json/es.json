@@ -1,0 +1,47 @@
+{
+    "strings": {
+        "Homepage": "Inicio",
+        "Tablets": "Tabletas",
+        "About Us": "Sobre Nosotros",
+        "Services": "Servicios",
+        "Contact Us": "Contáctanos",
+        "English": "Inglés",
+        "Spanish": "Español",
+        "German": "Aleman",
+        "Create Tablet": "Crear Tablet",
+        "Dummies": "Tontos",
+        "<b>Name</b>": "<b>Nombre</b>",
+        "<b>Price</b>": "<b>Precio</b>",
+        "<b>Option</b>": "<b>Opción</b>",
+        "Logout": "Cerrar sessión",
+        "There is no tablet": "No hay ninguna tableta",
+
+        "sProcessing":     "Procesando...",
+        "sLengthMenu":     "Mostrar _MENU_ registros",
+        "sZeroRecords":    "No se encontraron resultados",
+        "sEmptyTable":     "Ningún dato disponible en esta tabla =(",
+        "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+        "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+        "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+        "sInfoPostFix":    "",
+        "sSearch":         "Buscar:",
+        "sUrl":            "",
+        "sInfoThousands":  ",",
+        "sLoadingRecords": "Cargando...",
+        "oPaginate": {
+            "sFirst":    "Primero",
+            "sLast":     "Último",
+            "sNext":     "Siguiente",
+            "sPrevious": "Anterior"
+        },
+        "oAria": {
+            "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+            "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+        },
+        "buttons": {
+            "copy": "Copiar",
+            "colvis": "Visibilidad"
+        },
+        "Create new brand": "Crear nueva marca"
+    }
+}

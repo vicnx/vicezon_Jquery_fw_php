@@ -37,9 +37,9 @@ function menu_clicks(){
         location.href = pretty("?module=contact");
     })
     $('#home').on("click",function(){
-        location.href = "index.php";
-        localStorage.removeItem("brand");
-        localStorage.removeItem("producto");
+        location.href = pretty("?module=home");
+        // localStorage.removeItem("brand");
+        // localStorage.removeItem("producto");
     })
     $('#products').on("click",function(){
         localStorage.removeItem("brand");
@@ -49,12 +49,13 @@ function menu_clicks(){
 }
 function adminpanel(){
     $("#admin_panel").on("click",function(){
+        console.log("admin panel");
         $.ajax({ 
             type: 'GET', 
-            url: '/vicezon/module/client/module/home/controller/controller_home.php?op=changerank',
+            url: pretty("?module=home&function=vista_admin"),
             async:false, 
             dataType: 'json',
-            data:{},//idproduct es lo que guardamos para coger en el get LUEGO EL GET TIENE QUE SER ASI ($_GET['idproduct']); y el id ES EL ATRIBUTO
+            data:{},
             success: function (data) { 
                 location.href = "index.php";
             },
@@ -113,7 +114,7 @@ function set_avatar(){
 }
 $(document).ready(function() {
     // client_check();
-    // adminpanel();
+    adminpanel();
     menu_clicks();
     // set_avatar();
 });

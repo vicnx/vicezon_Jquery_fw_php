@@ -4,4 +4,12 @@
         <name>list_home</name>
         <uri>list_home</uri>
     </function>
+    <function>
+        <name>carousel_home</name>
+        <uri>carousel_home</uri>
+    </function>
+    <function>
+        <name>vista_admin</name>
+        <uri>vista_admin</uri>
+    </function>
 </functions>

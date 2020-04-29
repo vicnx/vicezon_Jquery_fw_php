@@ -1,0 +1,100 @@
+div .containertablets h2 {
+
+	text-align: center;
+}
+hr.style1{
+	border-top: 2px solid rgb(250, 195, 195);
+}
+#details span{
+	width: 100px;
+}
+#details h2{
+	font-size: larger;
+	text-align: center;
+}
+.pages_error{
+	padding: 15px;
+	margin: 20px;
+	margin-bottom: 100px;
+	height: 95%;
+	overflow: scroll;
+	border-radius: 12px;
+	background-color: red;
+}
+.modal {
+	height: auto;
+}
+.modal a.close-modal {
+	top: 5px;
+	right: 5px;
+}
+.containertablets{
+	margin: 0 auto;
+	width: 70%;
+}
+
+.wrapper{
+	display: flex;
+    flex-direction: column;
+	width: 100vw;
+	height: 100vh;
+    overflow: hidden;
+}
+body{
+	overflow: hidden;
+	display: flex;
+}
+.contenido{
+	overflow: scroll;
+	background-color: rgb(250, 195, 195) !important;
+	width: 100%;
+	height: 100%;
+	background-color:#fff;
+	transition: transform, 0.9s;
+	transition: padding, 0.9s;
+}
+.pages {
+	padding: 15px;
+	margin: 20px;
+	height: auto;
+	overflow: hidden;
+	border-radius: 12px;
+	background-color: #fff;
+}
+.contenido::-webkit-scrollbar {
+    display: none;
+}
+#lang {
+	position: absolute;
+	top: 1%;
+	right: 5%;
+}
+.page-header h2{
+	margin-top: 0;
+}
+table tr td:last-child a{
+	margin-right: 15px;
+}
+table tr td.ultima {
+	width: 115px;
+}
+.negro{
+	color: black;
+}
+a.negro:hover{
+	color: red;
+}
+
+.blacktable, .blacktable td, .blacktable td{
+	border: 1px solid black;
+ }
+ table.dataTable {
+	 width: 100%;
+ }
+.btn{
+	margin: 5px;
+	padding: 10px;
+}
+.pagination .page-item.active .page-link{
+	z-index: 1;
+}
