@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>list_shop</name>
+        <uri>list_shop</uri>
+    </function>
+    <function>
+        <name>list_products</name>
+        <uri>list_products</uri>
+    </function>
+    <function>
+        <name>load_filters</name>
+        <uri>load_filters</uri>
+    </function>
+    <function>
+        <name>details</name>
+        <uri>details</uri>
+    </function>
+    <function>
+        <name>busqueda</name>
+        <uri>busqueda</uri>
+    </function>
+</functions>

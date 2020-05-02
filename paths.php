@@ -59,4 +59,21 @@
         define('CLIENT_HOME_PATH', CLIENT_SITE_PATH . 'modules/home/');
         //HOME/MODEL/MODEL (SITE_ROOT)
         define('CLIENT_MODEL_HOME', CLIENT_MODULES_PATH . 'home/model/model/');
+
+
+        //MODULE SHOP
+        //VIEW PATH SHOP (view del shop) (SITE_ROOT)
+        define('CLIENT_SHOP_VIEW_PATH', CLIENT_MODULES_PATH . 'shop/view/');
+        //shop PATH (SITE_PATH)
+        define('CLIENT_SHOP_PATH', CLIENT_SITE_PATH . 'modules/shop/');
+        //shop/MODEL/MODEL (SITE_ROOT)
+        define('CLIENT_MODEL_SHOP', CLIENT_MODULES_PATH . 'shop/model/model/');
+
+        //MODULE SEARCH
+        //VIEW PATH SEARCH (view del search) (SITE_ROOT)
+        define('CLIENT_SEARCH_VIEW_PATH', CLIENT_MODULES_PATH . 'search/view/');
+        //seach PATH (SITE_PATH)
+        define('CLIENT_SEARCH_PATH', CLIENT_SITE_PATH . 'modules/search/');
+        //SEARCH/MODEL/MODEL (SITE_ROOT)
+        define('CLIENT_MODEL_SEARCH', CLIENT_MODULES_PATH . 'search/model/model/');
 ?>

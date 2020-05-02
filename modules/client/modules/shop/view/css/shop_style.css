@@ -1,0 +1,119 @@
+/* PAGINATION */
+.pagination li{
+    margin: 1px;
+    padding: 5px 10px 5px 10px;
+}
+.pagination a{
+    color:black;
+}
+.pagination li:hover{
+    background-color: rgb(255, 133, 133);
+    border-radius: .125rem;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+}
+.pagination .disabled{
+    background-color: rgb(255, 133, 133);
+}
+.prev, .next{
+    background-color: white !important;
+}
+/* DETAILS */
+#btnvolver{
+    position: absolute;
+    height: 45px;
+    left: 10px;
+    top: 159px;
+}
+.details{
+    display: flex;
+}
+.infoproduct{
+    width: auto;
+    margin-left: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: x-large;
+}
+.details_img{
+    width: 200px;
+    height: auto;
+}
+/* FILTERS */
+#mapfilter {
+    height: 200px;
+    /* The height is 400 pixels */
+    width: 100%;
+    /* The width is the width of the web page */
+}
+.filtersbody{
+    display: flex;
+    flex-direction: column;
+    padding-left: 45px !important;
+}
+.brandtext{
+    text-transform: uppercase;
+}
+
+/* SHOP */
+.list_shop{
+    display: flex;
+    flex-direction: column;
+}
+.itemlistempty{
+    font-family: monospace;
+    width: 80%;
+    font-size: 109px;
+}
+.shop{
+    display: flex;
+    flex-direction: row;
+}
+.filters{
+    float: right;
+    width: 20%;
+    margin-right: 20px;
+    border: 1px solid black;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.list{
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 30px;
+}
+.itemlist{
+    margin-right: 20px;
+    margin-bottom: 20px;
+    width: 198px;
+    cursor: pointer;
+}
+.itemlist:hover{
+    margin-top: -5px;
+}
+.fa-shopping-cart{
+    float: left;
+}
+.fa-shopping-cart:hover{
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    color: #0277BD;
+}
+.fa-heart{
+    float: right;
+}
+.fa-heart:hover{
+    -webkit-transition: all 300ms ease-out;
+    -moz-transition: all 300ms ease-out;
+    transition: all 300ms ease-out;
+    color:red;
+}
+.liked{
+    color:red;
+}
+.liked:hover{
+    color:black;
+}

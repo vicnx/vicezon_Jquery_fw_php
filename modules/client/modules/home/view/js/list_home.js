@@ -71,8 +71,11 @@ function onclick_item(){
     $('.item').on('click',function(e){
         e.preventDefault();
         e.stopImmediatePropagation();//esto evita que se realice 2 veces al hacer CLICK!
-        var idproductthis=$(this).attr("id");
-        console.log(idproductthis);
+        var idproduct= $(this).attr("id");
+        localStorage.setItem("product", idproduct);
+        window.location.href = pretty('?module=shop');
+
+        //DESCOMENTAR CON LIKES Y CART
         // var idproductthis=$(this).attr("id");
         // console.log(idproductthis);
         // if($(event.target).is('.fa-heart')){
@@ -100,6 +103,7 @@ function top_brands(){
             type: 'POST', 
             url: pretty('?module=home&function=top_brands'),
             data: {offset_brands: offset},
+            async: false,
             dataType: 'json', 
             success: function (data) {
                 // console.log(data); 
@@ -130,12 +134,12 @@ function top_brands(){
 
     function onclick_brand_views(){
         $('.brand-card').on('click',function() {
-            var idbrand= $(this).attr("id");
-            console.log(idbrand);
             // var idbrand= $(this).attr("id");
             // console.log(idbrand);
-            // localStorage.setItem("brand", idbrand);
-            // window.location.href = "index.php?page=shop";
+            var idbrand= $(this).attr("id");
+            console.log(idbrand);
+            localStorage.setItem("brand", idbrand);
+            window.location.href = pretty('?module=shop');
         });
     }
     function more_brands(){

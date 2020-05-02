@@ -38,8 +38,8 @@
 <!-- <script type="text/javascript" src="module/login/view/js/user_control.js"></script> -->
 <!-- APIS -->
 <script type="text/javascript" src="<?php echo CLIENT_VIEW_JS ?>APIS.js"></script>
-<!-- SEARCH FALTA POR MODIFICAR-->
-<!-- <script src="module/client/module/search/view/js/search.js"></script> -->
+<!-- SEARCH-->
+<script src="/vicezon_fw_php/modules/client/modules/search/view/js/search.js"></script>
 <!-- PROPIO CLIENT-->
 <link rel="stylesheet" href="/vicezon_fw_php/modules/client/view/css/client_style.css">
 <script type="text/javascript" src="<?php echo CLIENT_VIEW_JS ?>client_functions.js"></script>

@@ -10,4 +10,14 @@
         <uri>contact</uri>
         <default_function>list_contact</default_function>
     </module>
+    <module>
+        <name>shop</name>
+        <uri>shop</uri>
+        <default_function>list_shop</default_function>
+    </module>
+    <module>
+        <name>search</name>
+        <uri>search</uri>
+        <default_function>search</default_function>
+    </module>
 </modules>

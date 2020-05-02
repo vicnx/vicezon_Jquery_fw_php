@@ -34,7 +34,7 @@ function handlerModule($URI_module, $URI_function) {
     foreach ($modules->module as $module) {
         if (($URI_module === (String) $module->uri)) {
             $exist = true;
-            $default_function= (String) $module->default_function;//cogo la function default
+            $default_function= (String) $module->default_function;//cojo la function default
             $path = CLIENT_MODULES_PATH . $URI_module . "/controller/controller_" . $URI_module . ".class.php";
             if (file_exists($path)) {
                 require_once($path);

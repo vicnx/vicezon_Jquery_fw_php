@@ -44,7 +44,7 @@ function menu_clicks(){
     $('#products').on("click",function(){
         localStorage.removeItem("brand");
         localStorage.removeItem("producto");
-        location.href = "index.php?page=shop";
+        location.href = pretty('?module=shop');
     })
 }
 function adminpanel(){
