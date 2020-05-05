@@ -20,4 +20,9 @@
         <uri>search</uri>
         <default_function>search</default_function>
     </module>
+    <module>
+        <name>login</name>
+        <uri>login</uri>
+        <default_function>list_login</default_function>
+    </module>
 </modules>

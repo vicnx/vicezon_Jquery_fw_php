@@ -76,4 +76,13 @@
         define('CLIENT_SEARCH_PATH', CLIENT_SITE_PATH . 'modules/search/');
         //SEARCH/MODEL/MODEL (SITE_ROOT)
         define('CLIENT_MODEL_SEARCH', CLIENT_MODULES_PATH . 'search/model/model/');
+
+        //MODULE LOGIN
+        //VIEW PATH login (view del login) (SITE_ROOT)
+        define('CLIENT_LOGIN_VIEW_PATH', CLIENT_MODULES_PATH . 'login/view/');
+        //seach PATH (SITE_PATH)
+        define('CLIENT_LOGIN_PATH', CLIENT_SITE_PATH . 'modules/login/');
+        //LOGIN/MODEL/MODEL (SITE_ROOT)
+        define('CLIENT_MODEL_LOGIN', CLIENT_MODULES_PATH . 'login/model/model/');
+        define('CLIENT_UTILS_LOGIN', CLIENT_MODULES_PATH . 'login/utils/');
 ?>

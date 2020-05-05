@@ -1,0 +1,47 @@
+<div class="contenido">
+    <div class="pages">
+        <div id="contenido">
+            <form id="form_register" class="register_form" autocomplete="off" action="">
+                <p class="h4 mb-4">Register</p>
+                <div id="register_msg"></div>
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <input type="text" id="username_register" name="username_register" class="form-control" placeholder="Username" value="test">
+                        <div id="e_username" class="alert alert-danger" role="alert" hidden></div>
+                    </div>
+                    <div class="col">
+                        <input type="text" id="first_name_register" name="first_name_register" class="form-control" placeholder="First name" value="test">
+                        <div id="e_first_name" class="alert alert-danger" role="alert" hidden></div>
+                    </div>
+                    <div class="col">
+                        <input type="text" id="last_name_register" name="last_name_register" class="form-control" placeholder="Last name" value="test">
+                        <div id="e_last_name" class="alert alert-danger" role="alert" hidden></div>
+                    </div>
+                </div>
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <input type="email" id="email_register" name="email_register" class="form-control" placeholder="E-mail" value="test@test.com">
+                        <div id="e_email" class="alert alert-danger" role="alert" hidden></div>
+                    </div>
+                </div>
+                <div class="form-row mb-4">
+                    <div class="col">
+                        <input type="password" id="password_register" name="password_register" class="form-control" placeholder="Password" value="12345678">
+                        <div id="e_password" class="alert alert-danger" role="alert" hidden></div>
+                    </div>
+                    <div class="col">
+                        <input type="password" id="confirm_password_register" name="confirm_password_register" class="form-control" placeholder="Confirm Password" value="12345678">
+                        <div id="e_confirm_password" class="alert alert-danger" role="alert" hidden></div>
+                    </div>
+                </div>
+                <small class="form-text text-muted">
+                    At least 8 characters and 1 digit
+                </small>
+                <button class="btn btn-info my-4 btn-block" type="submit">Register</button>
+                <p>Already registered?
+                    <a id="already_registered">Login</a>
+                </p>
+            </form>
+        </div>
+    </div>
+</div>
