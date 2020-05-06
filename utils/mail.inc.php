@@ -3,7 +3,7 @@
         $subject = 'Correo de contacto (esto es lo que recive el cliente)';
         $return = '';
         $address= '';
-        $msg=$mail['inputMessage']; 
+        // $msg=$mail['inputMessage']; 
         switch ($mail['type']) {                
             case 'contact':
                 try{
@@ -26,6 +26,14 @@
                 'inputMessage: ' . $mail['inputMessage'];
                 $result = send_mailgun('admin@vicezon.com', $address, $subject, $msg);
                 return $mail;
+                break;
+            case 'check':
+                $address = $mail['inputEmail'];
+                $subject= "Gracias por registrarte en Vicezon.";
+                $ruta = pretty("?module=login&function=active_user&param=" . $mail['token'], true);
+                $msg = 'Gracias por unirte a nuestra aplicaci&oacute;n<br> Para finalizar el registro, pulsa ' . $ruta; 
+                $result = send_mailgun('admin@vicezon.com', $address, $subject, $msg);
+                return $result;
                 break;
    
         }

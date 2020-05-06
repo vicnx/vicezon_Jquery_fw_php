@@ -47,5 +47,11 @@ class login_dao {
         return $db->ejecutar($sql);
     }
 
+    public function active_user($db,$data) {
+        // return "dentro select";
+        $new_token=generate_token_check_secure(20);
+        $sql="UPDATE users SET active=1,token_check='$new_token' where token_check='$data'";
+        return $db->ejecutar($sql);
+    }
 
 }

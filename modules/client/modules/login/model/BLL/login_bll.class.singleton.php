@@ -32,4 +32,7 @@
 		public function insert_user_local_BLL($data){
 			return $this->dao->insert_user_local($this->db,$data);
 		}
+		public function active_user_BLL($data){
+			return $this->dao->active_user($this->db,$data);
+		}
 	}

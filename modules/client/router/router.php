@@ -1,6 +1,7 @@
 <?php
 require_once("paths.php");
 require 'autoload.php';
+include(UTILS . "utils.inc.php"); //cargamos prettys
 include(UTILS . "common.inc.php"); //carga el loadview
 include(UTILS . "mail.inc.php"); //cargamos el mail
 

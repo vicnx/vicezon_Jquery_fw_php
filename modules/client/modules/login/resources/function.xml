@@ -12,4 +12,8 @@
         <name>register</name>
         <uri>register</uri>
     </function>
+    <function>
+        <name>active_user</name>
+        <uri>active_user</uri>
+    </function>
 </functions>

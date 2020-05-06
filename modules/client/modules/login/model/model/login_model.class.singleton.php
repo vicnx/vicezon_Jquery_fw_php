@@ -27,8 +27,7 @@ class login_model {
         return $this->bll->insert_user_local_BLL($option);
     }
 
-    //autocomplete
-    function autocomplete($data){
-        return $this->bll->autocomplete($data);
+    function active_user($data){
+        return $this->bll->active_user_BLL($data);
     }
 }

@@ -30,7 +30,14 @@
 			// echo json_encode($ok);
 			if($ok['exist']==false){
 				$data=$ok['datos'];
-				loadModel(CLIENT_MODEL_LOGIN,'login_model','insert_user_local',$data);
+				$result=loadModel(CLIENT_MODEL_LOGIN,'login_model','insert_user_local',$data);
+				if($result){
+					$mail['type'] = 'check';
+					$mail['inputEmail'] = $data['email'];
+					$mail['token']= $data['token_check'];
+					enviar_email($mail);
+				}
+				// $token_check= $ok['token_check'];
 				echo "Registrado correctamente";
 			}else{
 				echo $ok['error'];
@@ -54,5 +61,11 @@
  			// 	header('HTTP/1.0 400 Bad error');
 			// 	echo json_encode($jsondata);
 			// }
+		}
+
+		function active_user(){
+			if (isset($_GET['param'])) {
+	    		loadModel(CLIENT_MODEL_LOGIN, "login_model", "active_user",$_GET['param']);
+	    	}	
 		}
 	}
