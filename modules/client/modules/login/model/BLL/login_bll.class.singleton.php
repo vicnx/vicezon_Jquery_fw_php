@@ -17,14 +17,19 @@
 	        return self::$_instance;
 	    }
 
-		//load brands
-		public function load_brands_BLL(){
-			// return "test";
-			// $this->dao->addview_product($this->db,$arrArgument);
-			// $this->dao->addview_brand($this->db,$arrArgument);
-			return $this->dao->select_brands($this->db);
+		//check if username exists
+		public function exists_check_local_BLL($data){
+			$type=$data['check_type'];
+			if($type == "username"){
+				$username=$data['username'];
+				return $this->dao->findUsername_local($this->db,$username);
+			}else{
+				$email=$data['email'];
+				return $this->dao->findEmail_local($this->db,$email);
+			}
 		}
-		public function autocomplete($data){
-			return $this->dao->autocomplete($this->db,$data['busqueda'],$data['brand_selected']);
+
+		public function insert_user_local_BLL($data){
+			return $this->dao->insert_user_local($this->db,$data);
 		}
 	}

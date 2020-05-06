@@ -27,10 +27,10 @@ function menu_clicks(){
 
     })
     $("#login").on("click",function(){
-        location.href = "index.php?page=login";
+        location.href = pretty('?module=login');
     })
     $("#register").on("click",function(){
-        location.href = "index.php?page=register";
+        location.href = pretty('?module=login&function=create_account');
     })
     // FUNCTIONES MENU
     $('#contact').on("click",function(){

@@ -25,7 +25,17 @@
 		}
 
 		function register(){
-			echo json_encode("register");
+			// echo json_encode($data);
+			$ok = validate_username_registered();
+			// echo json_encode($ok);
+			if($ok['exist']==false){
+				$data=$ok['datos'];
+				loadModel(CLIENT_MODEL_LOGIN,'login_model','insert_user_local',$data);
+				echo "Registrado correctamente";
+			}else{
+				echo $ok['error'];
+			}
+			// echo json_encode($ok);
 			// $info_data = json_decode($_POST['total_data'],true);
 			// $response = validate_data($info_data,'register');
 

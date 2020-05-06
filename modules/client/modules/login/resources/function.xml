@@ -6,7 +6,7 @@
     </function>
     <function>
         <name>list_register</name>
-        <uri>list_register</uri>
+        <uri>create_account</uri>
     </function>
     <function>
         <name>register</name>

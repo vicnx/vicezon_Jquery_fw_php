@@ -18,10 +18,13 @@ class login_model {
         return self::$_instance;
     }
 
-    //load brands
-    public function load_brands(){
-        // return "load brands search"; 
-        return $this->bll->load_brands_BLL();
+    //check user/email exists
+    public function exists_check_local($option){
+        return $this->bll->exists_check_local_BLL($option);
+    }
+
+    public function insert_user_local($option){
+        return $this->bll->insert_user_local_BLL($option);
     }
 
     //autocomplete

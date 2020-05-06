@@ -1,9 +1,9 @@
 function clics_varios(){
     $('#not_a_member').on('click', function(){
-        location.href = "index.php?page=register";
+        location.href = pretty('?module=login&function=create_account');
     })
     $('#already_registered').on('click', function(){
-        location.href = "index.php?page=login";
+        location.href = pretty('?module=login');
     })
 }
 

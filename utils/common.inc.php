@@ -41,15 +41,6 @@ function loadModel($model_path, $model_name, $function, $arrArgument = '',$arrAr
                 return call_user_func(array($obj, $function),$arrArgument,$arrArgument2);
             }
         }
-
-        // if (isset($arrArgument)){
-        //     if (isset($arrArgument2)) {
-        //         //return $obj->$function($arrArgument,$arrArgument2);
-        //         return call_user_func(array($obj, $function),$arrArgument,$arrArgument2);
-        //     }
-        //     //return $obj->$function($arrArgument);
-        //     return call_user_func(array($obj, $function),$arrArgument);
-        // }
         
     } else {
         throw new Exception();

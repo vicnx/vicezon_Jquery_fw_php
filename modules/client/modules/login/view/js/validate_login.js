@@ -1,31 +1,31 @@
-//validar login
-function validate_login(){
-    var result = true;
-    //form variables
-    var username=$("#login_username");
-    var e_username=$("#e_username");
-    var password=$("#login_password");
-    var e_password=$("#e_password");
-    //Username login Validate
-    if(!username.val()){
-        username.focus();
-        e_username.html("Ingresa tu usuario");
-        e_username.attr("hidden", false);
-        result=false;
-    }else{
-        e_username.attr("hidden", true);
-    }
-    //Password login validate
-    if(!password.val()){
-        password.focus();
-        e_password.html("Ingresa tu contraseña");
-        e_password.attr("hidden", false);
-        result=false;
-    }else{
-        e_password.attr("hidden", true);
-    }
-    return result;
-}
+// //validar login
+// function validate_login(){
+//     var result = true;
+//     //form variables
+//     var username=$("#login_username");
+//     var e_username=$("#e_username");
+//     var password=$("#login_password");
+//     var e_password=$("#e_password");
+//     //Username login Validate
+//     if(!username.val()){
+//         username.focus();
+//         e_username.html("Ingresa tu usuario");
+//         e_username.attr("hidden", false);
+//         result=false;
+//     }else{
+//         e_username.attr("hidden", true);
+//     }
+//     //Password login validate
+//     if(!password.val()){
+//         password.focus();
+//         e_password.html("Ingresa tu contraseña");
+//         e_password.attr("hidden", false);
+//         result=false;
+//     }else{
+//         e_password.attr("hidden", true);
+//     }
+//     return result;
+// }
 // VALIDAR REGISTRO
 function validate_register(){
     // FORM VARIABLES
@@ -145,13 +145,13 @@ function form_register_submit(){
         if(validate_register()){
             $.ajax({
 				type : 'POST',
-				url  : 'module/login/controller/clogin.php?&op=register&' + register_serialized,
+				url  : pretty('?module=login&function=register'),
 				data : register_serialized,
 				success: function(response){			
 			   		console.log(response)		
 					if(response=="Registrado correctamente"){					
-						$("#register_msg").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>'+response+'</div>');
-                        setTimeout(' window.location.href = "index.php?page=login";',1000);
+						$("#register_msg").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>'+response+'<br>SE HA ENVIADO UN EMAIL DE VERIFICACION</div>');
+                        setTimeout(' window.location.href = pretty("?module=login");',1000);
                         console.log(response);
 					}else{					
 						$("#register_msg").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>'+response+'</div>');
@@ -213,5 +213,5 @@ function form_login_submit(){
 //READY
 $(document).ready(function(){
     form_register_submit();
-    form_login_submit()
+    // form_login_submit();
 });
