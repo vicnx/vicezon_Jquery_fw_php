@@ -1,31 +1,31 @@
-// //validar login
-// function validate_login(){
-//     var result = true;
-//     //form variables
-//     var username=$("#login_username");
-//     var e_username=$("#e_username");
-//     var password=$("#login_password");
-//     var e_password=$("#e_password");
-//     //Username login Validate
-//     if(!username.val()){
-//         username.focus();
-//         e_username.html("Ingresa tu usuario");
-//         e_username.attr("hidden", false);
-//         result=false;
-//     }else{
-//         e_username.attr("hidden", true);
-//     }
-//     //Password login validate
-//     if(!password.val()){
-//         password.focus();
-//         e_password.html("Ingresa tu contraseña");
-//         e_password.attr("hidden", false);
-//         result=false;
-//     }else{
-//         e_password.attr("hidden", true);
-//     }
-//     return result;
-// }
+//validar login
+function validate_login(){
+    var result = true;
+    //form variables
+    var username=$("#login_username");
+    var e_username=$("#e_username");
+    var password=$("#login_password");
+    var e_password=$("#e_password");
+    //Username login Validate
+    if(!username.val()){
+        username.focus();
+        e_username.html("Ingresa tu usuario");
+        e_username.attr("hidden", false);
+        result=false;
+    }else{
+        e_username.attr("hidden", true);
+    }
+    //Password login validate
+    if(!password.val()){
+        password.focus();
+        e_password.html("Ingresa tu contraseña");
+        e_password.attr("hidden", false);
+        result=false;
+    }else{
+        e_password.attr("hidden", true);
+    }
+    return result;
+}
 // VALIDAR REGISTRO
 function validate_register(){
     // FORM VARIABLES
@@ -165,44 +165,57 @@ function form_register_submit(){
 function form_login_submit(){
     $("#form_login").submit(function(e){
         e.preventDefault();
-        console.log(validate_login());
+        // console.log(validate_login());
         var login_serialized = $("#form_login").serialize();
-        console.log(login_serialized);
+        // console.log(login_serialized);
         if(validate_login()){
             $.ajax({
 				type : 'POST',
-				url  : 'module/login/controller/clogin.php?&op=login&' + login_serialized,
+				url  : pretty('?module=login&function=login'),
 				data : login_serialized,
-				success: function(response){			
-			   		console.log(response)		
-					if(response=="vale"){	
-                        coger_carrito_bd()//busca el carrito en bd de ese usuario
-                        .then(function(data){
-                            console.log(data);
-                            $("#login_msg").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>LOGEADO CORRECTAMENTE</div>');
-                            setTimeout(' window.location.href = "index.php";',1000);
-                            console.log(response);
-                        })				
-                    }else if(response=="carrito"){
-                        coger_carrito_bd()//busca el carrito en bd de ese usuario
-                        .then(function(data){
-                            console.log(data);
-                            $("#login_msg").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>LOGEADO CORRECTAMENTE</div>');
-                            setTimeout(' window.location.href = "index.php?page=cart";',1000);
-                            console.log(response);
-                        })
-                        $.ajax({ 
-                                type: 'GET', 
-                                url: 'module/client/module/cart/controller/ccart.php?op=destroy_cart_session',
-                            })
-                            .done(function( data) {
-                                console.log("data");
-                            });
-                        console.log("va al carrito");
+				success: function(response){
+                    console.log(response);
+                    response_json= JSON.parse(response);
+                    // console.log(response_json['response']);
+                    localStorage.setItem('id_token',response_json['token_jwt']);
+                    if(response_json['response']=="datos_validos"){
+                        $("#login_msg").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>LOGEADO CORRECTAMENTE</div>');
+                        setTimeout(' window.location.href = "index.php";',1000);
+                        console.log(response);
+                    }else{
+                        $("#login_msg").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>COMPRUEBA LOS DATOS INTRODUCIDOS</div>');
                     }
-                    else{					
-						$("#login_msg").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>COMPRUEBA LOS DATOS INTRODUCIDOS</div>');
-					}
+                    
+                    //falta el carrito con promesas.
+			   	// 	console.log(response)		
+				// 	if(response=="vale"){	
+                //         coger_carrito_bd()//busca el carrito en bd de ese usuario
+                //         .then(function(data){
+                //             console.log(data);
+                //             $("#login_msg").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>LOGEADO CORRECTAMENTE</div>');
+                //             setTimeout(' window.location.href = "index.php";',1000);
+                //             console.log(response);
+                //         })				
+                //     }else if(response=="carrito"){
+                //         coger_carrito_bd()//busca el carrito en bd de ese usuario
+                //         .then(function(data){
+                //             console.log(data);
+                //             $("#login_msg").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>LOGEADO CORRECTAMENTE</div>');
+                //             setTimeout(' window.location.href = "index.php?page=cart";',1000);
+                //             console.log(response);
+                //         })
+                //         $.ajax({ 
+                //                 type: 'GET', 
+                //                 url: 'module/client/module/cart/controller/ccart.php?op=destroy_cart_session',
+                //             })
+                //             .done(function( data) {
+                //                 console.log("data");
+                //             });
+                //         console.log("va al carrito");
+                //     }
+                //     else{					
+				// 		$("#login_msg").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>COMPRUEBA LOS DATOS INTRODUCIDOS</div>');
+				// 	}
 				}
 			});
         }
@@ -213,5 +226,5 @@ function form_login_submit(){
 //READY
 $(document).ready(function(){
     form_register_submit();
-    // form_login_submit();
+    form_login_submit();
 });

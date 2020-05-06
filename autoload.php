@@ -1,4 +1,7 @@
 <?php
+include(UTILS . "utils.inc.php"); //cargamos prettys
+include(UTILS . "common.inc.php"); //carga el loadview
+include(UTILS . "mail.inc.php"); //cargamos el mail
 spl_autoload_register(null, false);
 spl_autoload_extensions('.php,.inc.php,.class.php,.class.singleton.php');
 

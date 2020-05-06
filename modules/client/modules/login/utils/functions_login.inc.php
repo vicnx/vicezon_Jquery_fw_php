@@ -40,4 +40,31 @@ function generate_token_check_secure($longitud){
     return bin2hex(openssl_random_pseudo_bytes(($longitud - ($longitud % 2)) / 2));
 }
 
+function generate_token_JWT($id){
+    require_once "model/JWT.php";
+    $header = '{"typ":"JWT","alg":"HS256"}';
+    $secret = 'estoesunaprueba';
+    // return time()+(60*60);
+    $payload = '{
+        "iat":time(), 
+        "exp":time() + (60*60),
+        "name":"'.$id.'"
+    }';
+
+    $JWT = new JWT;
+    $token = $JWT->encode($header, $payload, $secret);
+    $json = $JWT->decode($token, $secret);
+    return $token;
+    // echo 'JWT encode yomogan: '.$token."\n\n"; echo '<br>';
+    // echo 'JWT decode yomogan: '.$json."\n\n"; echo '<br>'; echo '<br>';
+}
+
+function decode_token($token){
+    require_once "model/JWT.php";
+    $secret = 'estoesunaprueba';
+    $JWT = new JWT;
+    $json = $JWT->decode($token, $secret);
+    return $json;
+}
+
 ?>

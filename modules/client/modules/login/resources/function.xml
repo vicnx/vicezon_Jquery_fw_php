@@ -16,4 +16,12 @@
         <name>active_user</name>
         <uri>active_user</uri>
     </function>
+    <function>
+        <name>login</name>
+        <uri>login</uri>
+    </function>
+    <function>
+        <name>get_user</name>
+        <uri>get_user</uri>
+    </function>
 </functions>

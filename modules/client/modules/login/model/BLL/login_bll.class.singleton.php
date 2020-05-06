@@ -35,4 +35,13 @@
 		public function active_user_BLL($data){
 			return $this->dao->active_user($this->db,$data);
 		}
+
+		public function login_BLL($data){
+			return $this->dao->login($this->db,$data);
+		}
+
+		public function get_user_BLL($data){
+			// return $data;
+			return $this->dao->get_user($this->db,$data);
+		}
 	}

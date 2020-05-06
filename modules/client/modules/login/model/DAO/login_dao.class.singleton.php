@@ -54,4 +54,25 @@ class login_dao {
         return $db->ejecutar($sql);
     }
 
+
+    public function login($db,$data) {
+        $username=$data['username'];
+        $password=$data['password'];
+        // return "dentro select";
+        $sql="SELECT * FROM users where username='$username'";
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+
+    public function get_user($db,$data) {
+        
+        // return $data;
+        $token_decoded=decode_token($data); 
+        return $token_decoded;
+        // return "dentro select";
+        $sql="SELECT * FROM users where id='$username'";
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+
 }

@@ -42,30 +42,40 @@
 			}else{
 				echo $ok['error'];
 			}
-			// echo json_encode($ok);
-			// $info_data = json_decode($_POST['total_data'],true);
-			// $response = validate_data($info_data,'register');
-
-			// if ($response['result']) {
-			// 	$result['token'] = loadModel(MODEL_LOGIN,'login_model','insert_userp',$info_data);
-			// 	if ($result) {
-			// 		$result['type'] = 'alta';
-			// 		$result['inputEmail'] = $info_data['remail'];
-			// 		$result['inputMessage'] = 'Para activar tu cuenta en ohana dogs pulse en el siguiente enlace';
-			// 		enviar_email($result);
-			// 	}
-			// 	echo json_encode($result);
-			// }else{
-			// 	$jsondata['success'] = false;
-		 	// 	$jsondata['error'] = $response['error'];
- 			// 	header('HTTP/1.0 400 Bad error');
-			// 	echo json_encode($jsondata);
-			// }
 		}
 
 		function active_user(){
 			if (isset($_GET['param'])) {
 	    		loadModel(CLIENT_MODEL_LOGIN, "login_model", "active_user",$_GET['param']);
 	    	}	
+		}
+
+		function login(){
+			$data = array(
+				'username' => $_POST['login_username'],
+				'password' => $_POST['login_password']
+			);
+			$result=loadModel(CLIENT_MODEL_LOGIN, "login_model", "login",$data);
+			if(!$result){
+				echo "user no existe";
+			}else{
+				if(password_verify($data['password'],$result[0]['password'])){
+					$token_jwt=generate_token_JWT($data['username']);
+					$response = array(
+						'response' => "datos_validos",
+						'token_jwt' => $token_jwt
+					);
+					echo json_encode($response);
+				}else{
+					echo "contraseña incorrecta";
+				}
+			}
+			// echo json_encode($result[0]['username']);
+		}
+
+		function get_user(){
+			$data=$_POST['token'];
+			$result=loadModel(CLIENT_MODEL_LOGIN, "login_model", "get_user",$data);
+			echo json_encode($result);
 		}
 	}
