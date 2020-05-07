@@ -9,22 +9,24 @@ function menu_clicks(){
     })
     //boton logout va al controlador del login
     $("#logout").on("click",function(){
-        carrito=localStorage.cart;
-        console.log(carrito);
-        insert_cart(carrito)
-        .then(function(data){
-            $.ajax({ 
-                type: 'GET', 
-                url: 'module/login/controller/clogin.php?op=logout',
-                success: function (data) { 
-                    location.href = "index.php";
-                },
-                error: function(){
-                    console.log("error");
-                }
-            });
-        })
-
+        localStorage.removeItem("id_token");
+        console.log("click logut");
+        location.href = pretty('?module=home');
+    //     carrito=localStorage.cart;
+    //     console.log(carrito);
+    //     insert_cart(carrito)
+    //     .then(function(data){
+    //         $.ajax({ 
+    //             type: 'GET', 
+    //             url: 'module/login/controller/clogin.php?op=logout',
+    //             success: function (data) { 
+    //                 location.href = "index.php";
+    //             },
+    //             error: function(){
+    //                 console.log("error");
+    //             }
+    //         });
+    //     })
     })
     $("#login").on("click",function(){
         location.href = pretty('?module=login');

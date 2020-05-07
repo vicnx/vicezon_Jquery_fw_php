@@ -41,27 +41,25 @@ function generate_token_check_secure($longitud){
 }
 
 function generate_token_JWT($id){
-    require_once "model/JWT.php";
-    $header = '{"typ":"JWT","alg":"HS256"}';
-    $secret = 'estoesunaprueba';
-    // return time()+(60*60);
-    $payload = '{
-        "iat":time(), 
-        "exp":time() + (60*60),
-        "name":"'.$id.'"
-    }';
+    $data = file_get_contents("view/js/apis_app.json"); //obtengo el contenido de apis.json
+    $apis= json_decode($data,true); //lo convierto en array
+    $secret=$apis[0]['secret_token'];//obtengo el sewcret
+    $header = '{"typ":"JWT", "alg":"HS256"}';
+    $arrayPayload =array(
+     'iat' => time(),
+     'exp'=> time() + (5 * 60),
+     'name'=> $id
+    );
+    $payload = json_encode($arrayPayload);
 
     $JWT = new JWT;
-    $token = $JWT->encode($header, $payload, $secret);
-    $json = $JWT->decode($token, $secret);
-    return $token;
-    // echo 'JWT encode yomogan: '.$token."\n\n"; echo '<br>';
-    // echo 'JWT decode yomogan: '.$json."\n\n"; echo '<br>'; echo '<br>';
+    return $JWT->encode($header, $payload, $secret);
 }
 
 function decode_token($token){
-    require_once "model/JWT.php";
-    $secret = 'estoesunaprueba';
+    $data = file_get_contents("view/js/apis_app.json"); //obtengo el contenido de apis.json
+    $apis= json_decode($data,true); //lo convierto en array
+    $secret=$apis[0]['secret_token'];//obtengo el sewcret
     $JWT = new JWT;
     $json = $JWT->decode($token, $secret);
     return $json;

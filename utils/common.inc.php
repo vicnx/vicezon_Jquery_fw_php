@@ -46,3 +46,12 @@ function loadModel($model_path, $model_name, $function, $arrArgument = '',$arrAr
         throw new Exception();
     }
 }
+
+function loadError(){
+    require(CLIENT_VIEW_PATH . "inc/client_top_page.php");
+    require(CLIENT_LOGIN_VIEW_PATH . "inc/login_top_page.html");
+    require(CLIENT_VIEW_PATH . "inc/client_menu.html");
+    require(CLIENT_VIEW_PATH . "inc/client_header.html");
+    loadView(INC_PATH,'404.html');
+    require(CLIENT_VIEW_PATH . "inc/client_footer.html");
+}

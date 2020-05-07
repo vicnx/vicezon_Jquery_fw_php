@@ -42,7 +42,8 @@
 <script src="/vicezon_fw_php/modules/client/modules/search/view/js/search.js"></script>
 <!-- PROPIO CLIENT-->
 <link rel="stylesheet" href="/vicezon_fw_php/modules/client/view/css/client_style.css">
+<script type="text/javascript" src="/vicezon_fw_php/modules/client/modules/login/view/js/init.js"></script>
 <script type="text/javascript" src="<?php echo CLIENT_VIEW_JS ?>client_functions.js"></script>
 
 <script type="text/javascript" src="<?php echo JS_PATH ?>utils.js"></script>
-<script type="text/javascript" src="/vicezon_fw_php/modules/client/modules/login/view/js/init.js"></script>
+<link rel="stylesheet" href="/vicezon_fw_php/view/css/style.css">

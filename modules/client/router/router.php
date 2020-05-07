@@ -54,10 +54,7 @@ function handlerModule($URI_module, $URI_function) {
         }
     }
     if (!$exist) {
-        // require_once(VIEW_PATH_INC . "header.php");
-        // require_once(VIEW_PATH_INC . "menu.php");
-        // require_once(VIEW_PATH_INC . "404.php");
-        // require_once(VIEW_PATH_INC . "footer.html");
+        loadError();
     }
 }
 
@@ -73,10 +70,7 @@ function handlerfunction($module, $obj, $URI_function) {
         }
     }
     if (!$exist) {
-        // require_once(VIEW_PATH_INC . "header.php");
-        // require_once(VIEW_PATH_INC . "menu.php");
-        // require_once(VIEW_PATH_INC . "404.php");
-        // require_once(VIEW_PATH_INC . "footer.html");
+        loadError();
     } else {
         call_user_func(array($obj, $event));
     }

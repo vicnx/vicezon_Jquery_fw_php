@@ -46,7 +46,7 @@
 
 		function active_user(){
 			if (isset($_GET['param'])) {
-	    		loadModel(CLIENT_MODEL_LOGIN, "login_model", "active_user",$_GET['param']);
+				loadModel(CLIENT_MODEL_LOGIN, "login_model", "active_user",$_GET['param']);
 	    	}	
 		}
 

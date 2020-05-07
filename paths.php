@@ -18,6 +18,9 @@
     //JS APLICACION
     define('JS_PATH', SITE_PATH . 'view/js/');
 
+    //VIEW PATH
+    define('INC_PATH', SITE_ROOT . 'view/inc/');
+
     //model
     define('MODEL_PATH', SITE_ROOT . 'model/');
 

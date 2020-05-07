@@ -59,20 +59,21 @@ class login_dao {
         $username=$data['username'];
         $password=$data['password'];
         // return "dentro select";
-        $sql="SELECT * FROM users where username='$username'";
+        $sql="SELECT * FROM users where username='$username' AND register_type='local'";
         $stmt = $db->ejecutar($sql);
         return $db->listar($stmt);
     }
 
     public function get_user($db,$data) {
-        
         // return $data;
-        $token_decoded=decode_token($data); 
-        return $token_decoded;
+        $json = decode_token($data);
+        $name=  json_decode($json)->name;
+        // return $name;
         // return "dentro select";
-        $sql="SELECT * FROM users where id='$username'";
+        $sql="SELECT * FROM users where id='$name'";
         $stmt = $db->ejecutar($sql);
         return $db->listar($stmt);
     }
+
 
 }
