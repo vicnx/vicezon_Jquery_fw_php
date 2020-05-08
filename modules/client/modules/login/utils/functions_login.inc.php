@@ -33,6 +33,23 @@ function validate_username_registered(){
     }
 }
 
+function validate_email_exists_local(){
+    $email= $_POST['email_send_mail'];
+    $check_email= array( 'email'=>$email,'check_type'=>'email');
+    $emailok = loadModel(CLIENT_MODEL_LOGIN,'login_model','exists_check_local',$check_email);
+    if($emailok==null){
+        $error="este email no existe";
+        return $return=array('exist'=>false,'error'=>$error);
+    }else{
+        $token_recover=generate_token_check_secure(20);
+        $data= array(
+            'email'=>$email,
+            'token_recover'=>$token_recover
+        );
+        return $return=array('exist'=>true,'data'=>$data);
+    }
+}
+
 function generate_token_check_secure($longitud){
     if ($longitud < 4) {
         $longitud = 4;

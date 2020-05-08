@@ -42,4 +42,17 @@ class login_model {
         // return $data;
         return $this->bll->get_user_BLL($data);
     }
+
+    function recover_password($data){
+        // return $data;
+        return $this->bll->recover_password_BLL($data);
+    }
+    function check_token($data){
+        // return $data;
+        return $this->bll->check_token_BLL($data);
+    }
+    function update_recover_token($data){
+        // return $data;
+        return $this->bll->update_recover_token_BLL($data);
+    }
 }

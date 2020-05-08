@@ -24,6 +24,24 @@
 			require(CLIENT_VIEW_PATH . "inc/client_footer.html");
 		}
 
+		function list_recover_password(){
+            require(CLIENT_VIEW_PATH . "inc/client_top_page.php");
+            require(CLIENT_LOGIN_VIEW_PATH . "inc/register_top_page.html");
+            require(CLIENT_VIEW_PATH . "inc/client_menu.html");
+            require(CLIENT_VIEW_PATH . "inc/client_header.html");
+			loadView(CLIENT_LOGIN_VIEW_PATH,'recover.html');
+			require(CLIENT_VIEW_PATH . "inc/client_footer.html");
+		}
+
+		function list_recover_send_mail(){
+            require(CLIENT_VIEW_PATH . "inc/client_top_page.php");
+            require(CLIENT_LOGIN_VIEW_PATH . "inc/register_top_page.html");
+            require(CLIENT_VIEW_PATH . "inc/client_menu.html");
+            require(CLIENT_VIEW_PATH . "inc/client_header.html");
+			loadView(CLIENT_LOGIN_VIEW_PATH,'recover_email.html');
+			require(CLIENT_VIEW_PATH . "inc/client_footer.html");
+		}
+
 		function register(){
 			// echo json_encode($data);
 			$ok = validate_username_registered();
@@ -77,5 +95,37 @@
 			$data=$_POST['token'];
 			$result=loadModel(CLIENT_MODEL_LOGIN, "login_model", "get_user",$data);
 			echo json_encode($result);
+		}
+
+		function recover_send_mail(){
+			$ok = validate_email_exists_local();
+
+			if ($ok['exist']==true){
+				$data=$ok['data'];
+				$result=loadModel(CLIENT_MODEL_LOGIN, "login_model", "update_recover_token",$data);
+				$mail['type'] = 'recover';
+				$mail['inputEmail'] = $data['email'];
+				$mail['token']= $data['token_recover'];
+				enviar_email($mail);
+				echo json_encode("done");
+			}else{
+				echo json_encode("fail");
+			}
+			
+		}
+
+		function recover_password(){
+			$data= array(
+				'password' => $_POST['password'],
+				'token_recover' => $_POST['token']
+			);
+			$result=loadModel(CLIENT_MODEL_LOGIN, "login_model", "check_token",$data);
+			if($result == null){
+				echo json_encode("fail");
+			}else{
+				loadModel(CLIENT_MODEL_LOGIN, "login_model", "recover_password",$data);
+				echo json_encode("done");
+			}
+			// echo json_encode($result);
 		}
 	}

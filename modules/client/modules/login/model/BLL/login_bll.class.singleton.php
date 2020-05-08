@@ -44,4 +44,20 @@
 			// return $data;
 			return $this->dao->get_user($this->db,$data);
 		}
+
+		public function recover_password_BLL($data){
+			// return $data;
+			$this->dao->change_password($this->db,$data);
+			return $this->dao->delete_token_recover($this->db,$data);
+		}
+
+		public function check_token_BLL($data){
+			// return $data;
+			return $this->dao->check_token($this->db,$data);
+		}
+
+		public function update_recover_token_BLL($data){
+			// return $data;
+			return $this->dao->update_recover_token($this->db,$data);
+		}
 	}

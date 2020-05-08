@@ -5,6 +5,10 @@ function clics_varios(){
     $('#already_registered').on('click', function(){
         location.href = pretty('?module=login');
     })
+
+    $('#recover').on('click', function(){
+        location.href = pretty('?module=login&function=list_recover_send_mail');
+    })
 }
 
 $(document).ready(function(){

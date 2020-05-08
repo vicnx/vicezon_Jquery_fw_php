@@ -35,7 +35,14 @@
                 $result = send_mailgun('admin@vicezon.com', $address, $subject, $msg);
                 return $result;
                 break;
-   
+            case 'recover':
+                $address = $mail['inputEmail'];
+                $subject= "Change password";
+                $ruta = pretty("?module=login&function=list_recover_password&param=" . $mail['token'], true);
+                $msg = 'Has solicitado un cambio de contraseña, si no has solicitado el cambio ignora este mensaje.<br> Para cambiar la contraseña, pulsa ' . $ruta; 
+                $result = send_mailgun('admin@vicezon.com', $address, $subject, $msg);
+                return $result;
+                break;  
         }
     }
 

@@ -75,5 +75,47 @@ class login_dao {
         return $db->listar($stmt);
     }
 
+    public function check_token($db,$data){
+        $token=$data['token_recover'];
+        // return $name;
+        // return "dentro select";
+        $sql="SELECT * FROM users where token_recover='$token'";
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+
+    }
+
+    public function update_recover_token($db,$data){
+        $email=$data['email'];
+        $token_recover=$data['token_recover'];
+        // return $name;
+        // return "dentro select";
+        $sql="UPDATE users SET token_recover='$token_recover' where email='$email'";
+        return $db->ejecutar($sql);
+
+    }
+
+    public function change_password($db,$data){
+        $password=$data['password'];
+        $token_recover=$data['token_recover'];
+        $password_encrypt= password_hash($password, PASSWORD_DEFAULT);
+        // return $name;
+        // return "dentro select";
+        $sql="UPDATE users SET password='$password_encrypt' where token_recover='$token_recover'";
+        return $db->ejecutar($sql);
+
+    }
+
+    public function delete_token_recover($db,$data){
+        $password=$data['password'];
+        $token_recover=$data['token_recover'];
+        $password_encrypt= password_hash($password, PASSWORD_DEFAULT);
+        // return $name;
+        // return "dentro select";
+        $sql="UPDATE users SET token_recover='' where token_recover='$token_recover'";
+        return $db->ejecutar($sql);
+
+    }
+
 
 }

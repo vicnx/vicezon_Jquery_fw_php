@@ -24,4 +24,20 @@
         <name>get_user</name>
         <uri>get_user</uri>
     </function>
+    <function>
+        <name>list_recover_password</name>
+        <uri>list_recover_password</uri>
+    </function>
+    <function>
+        <name>list_recover_send_mail</name>
+        <uri>list_recover_send_mail</uri>
+    </function>
+    <function>
+        <name>recover_send_mail</name>
+        <uri>recover_send_mail</uri>
+    </function>
+    <function>
+        <name>recover_password</name>
+        <uri>recover_password</uri>
+    </function>
 </functions>

@@ -138,6 +138,68 @@ function validate_register(){
 
     return result;
 }
+
+function validate_recover(){
+
+    var password=$("#password_recover");
+    var e_password=$("#e_password");
+
+    var confirm_password=$("#confirm_password_recover");
+    var e_confirm_password=$("#e_confirm_password");
+    var result= true;
+    //Password validate
+    if(!password.val()){
+        password.focus();
+        e_password.html("El password no puede estar vacio");
+        e_password.attr("hidden", false);
+        result=false;
+    }else if (password.val().length < 8){
+        password.focus();
+        e_password.html("El password minimo 8 caracteres");
+        e_password.attr("hidden", false);
+        result=false;
+    }else{
+        e_password.attr("hidden", true);
+    }
+    // Confirm password
+    if(!confirm_password.val()){
+        confirm_password.focus();
+        e_confirm_password.html("El confirm_password no puede estar vacio");
+        e_confirm_password.attr("hidden", false);
+        result=false;
+    }else if (confirm_password.val() != password.val()){
+        confirm_password.focus();
+        e_confirm_password.html("Las contraseñas no coinciden");
+        e_confirm_password.attr("hidden", false);
+        result=false;
+    }else{
+        e_confirm_password.attr("hidden", true);
+    }
+    return result;
+}
+
+function valdiate_mail(){
+    var email=$("#email_send_mail");
+    var e_email=$("#e_email");
+    var result =true;
+        //PATTERNS
+        var pemail = /^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/;
+        //EMAIL Validate
+        if(!email.val()){
+            email.focus();
+            e_email.html("El Email no puede estar vacio");
+            e_email.attr("hidden", false);
+            result=false;
+        }else if (!pemail.test(email.val())){
+            email.focus();
+            e_email.html("El Email no tiene formato valido");
+            e_email.attr("hidden", false);
+            result=false;
+        }else{
+            e_email.attr("hidden", true);
+        }
+        return result;
+}
 function form_register_submit(){
     $("#form_register").submit(function(e){
         e.preventDefault();
@@ -223,8 +285,58 @@ function form_login_submit(){
     });
 }
 
+function form_send_mail(){
+    $("#form_send_mail").submit(function(e){
+        e.preventDefault();
+        var mail_serialized = $("#form_send_mail").serialize();
+        if(valdiate_mail()){
+            $.ajax({
+				type : 'POST',
+				url  : pretty('?module=login&function=recover_send_mail'),
+				data : mail_serialized,
+				success: function(data){			
+					if(data=="fail"){					
+                        toastr.error("Este correo no esta registrado o esta vinculado a una red social.","Invalid Email");
+					}else{					
+                        toastr.success("Revisa tu correo","Done");
+                        setTimeout(' window.location.href = pretty("?module=home");',1000);
+					}
+				}
+			});
+        }
+        
+    });
+}
+function form_recover_submit(){
+    $("#form_recover").submit(function(e){
+        var token=get_token_actual_url(window.location.href);//esto coge el token de la url actual.
+        // console.log(url.searchParams.get("param"));
+        e.preventDefault();
+        var password = $("#password_recover").val()
+        var recover_serialized = $("#form_recover").serialize();
+        if(validate_recover()){
+            $.ajax({
+				type : 'POST',
+				url  : pretty('?module=login&function=recover_password'),
+				data : {password:password,token: token},
+				success: function(data){			
+					if(data=="fail"){					
+                        toastr.error("Token invalido","Invalid Token");
+					}else{					
+                        toastr.success("Contraseñá cambaida con exito","Done");
+                        setTimeout(' window.location.href = pretty("?module=login");',1000);
+					}
+				}
+			});
+        }
+        
+    });
+}
+
 //READY
 $(document).ready(function(){
     form_register_submit();
     form_login_submit();
+    form_send_mail();
+    form_recover_submit();
 });
