@@ -1,4 +1,5 @@
 function menu_clicks(){
+    console.log("MENU CLICKS LOADED")
     //boton cart
     $("#cart_menu").on("click",function(){
         location.href = "index.php?page=cart";
@@ -9,8 +10,14 @@ function menu_clicks(){
     })
     //boton logout va al controlador del login
     $("#logout").on("click",function(){
+        if(check_auth_state()){
+            firebase.auth().signOut()
+            .then(function(){
+                console.log("LOGOUT DE SOCIAL (FIREBASE)");
+                // console.log(check_auth_state());
+            });
+        }
         localStorage.removeItem("id_token");
-        console.log("click logut");
         location.href = pretty('?module=home');
     //     carrito=localStorage.cart;
     //     console.log(carrito);

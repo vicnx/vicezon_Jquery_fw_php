@@ -79,7 +79,7 @@ class login_dao {
         $token=$data['token_recover'];
         // return $name;
         // return "dentro select";
-        $sql="SELECT * FROM users where token_recover='$token'";
+        $sql="SELECT * FROM users where token_recover='$token' AND register_type='local'";
         $stmt = $db->ejecutar($sql);
         return $db->listar($stmt);
 
@@ -90,7 +90,7 @@ class login_dao {
         $token_recover=$data['token_recover'];
         // return $name;
         // return "dentro select";
-        $sql="UPDATE users SET token_recover='$token_recover' where email='$email'";
+        $sql="UPDATE users SET token_recover='$token_recover' where email='$email' AND register_type='local'";
         return $db->ejecutar($sql);
 
     }
@@ -101,7 +101,7 @@ class login_dao {
         $password_encrypt= password_hash($password, PASSWORD_DEFAULT);
         // return $name;
         // return "dentro select";
-        $sql="UPDATE users SET password='$password_encrypt' where token_recover='$token_recover'";
+        $sql="UPDATE users SET password='$password_encrypt' where token_recover='$token_recover' AND register_type='local'";
         return $db->ejecutar($sql);
 
     }
@@ -112,9 +112,40 @@ class login_dao {
         $password_encrypt= password_hash($password, PASSWORD_DEFAULT);
         // return $name;
         // return "dentro select";
-        $sql="UPDATE users SET token_recover='' where token_recover='$token_recover'";
+        $sql="UPDATE users SET token_recover='' where token_recover='$token_recover' AND register_type='local'";
         return $db->ejecutar($sql);
 
+    }
+    public function check_social($db,$data){
+        $uid=$data['uid'];
+        // return $name;
+        // return "dentro select";
+        $sql="SELECT * FROM users where id='$uid'";
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+    public function register_social($db,$data) {
+        $uid=$data['uid'];
+        $email=$data['email'];
+        $email_username=explode("@", $email);
+        $username=$email_username[0];
+        $typee='client';
+        $token_recover=generate_token_check_secure(20);
+        $register_type=$data['providerId'];
+        $first_name='';
+        $last_name= '';
+        $avatar=$data['photoURL'];
+        if ($register_type=="google.com"){
+            $fullname=explode(" ", $data['displayName']);
+            if(count($fullname) !== 0){
+                $first_name=$fullname[0];
+                $last_name_array= array_slice($fullname, 1, count($fullname));
+                $last_name = implode(" ", $last_name_array);
+            }
+        }
+        // return "dentro select";
+        $sql="INSERT INTO users (id, username, first_name, last_name, email,password,type, avatar,active, token_check, token_recover,register_type) VALUES ('$uid','$username','$first_name','$last_name','$email','' ,'$typee','$avatar',1,'','$token_recover','$register_type')";
+        return $db->ejecutar($sql);
     }
 
 

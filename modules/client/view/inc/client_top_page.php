@@ -27,6 +27,15 @@
 <!-- BOTTPAGE -->
 <script type="text/javascript" src="<?php echo CLIENT_VIEW_LIBRARIES ?>Jquery/bootpage/jquery.bootpag.min.js"></script>
 
+
+<!-- FIREBASE -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-app.js"></script>
+<!-- Add Firebase products that you want to use -->
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/6.2.0/firebase-firestore.js"></script>
+<!-- FIREBASE LCOAL -->
+<script type="text/javascript" src="/vicezon_fw_php/modules/client/modules/login/view/js/firebase.js"></script>
+
 <!-- TOASTR -->
 <script type="text/javascript" src="<?php echo CLIENT_VIEW_LIBRARIES ?>toastr/build/toastr.min.js"></script>
 <link rel="stylesheet" href="<?php echo CLIENT_VIEW_LIBRARIES ?>toastr/build/toastr.css">

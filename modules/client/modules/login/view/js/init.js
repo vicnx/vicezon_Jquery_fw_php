@@ -3,13 +3,14 @@ function load_menu(){
     console.log("LOGIN: LOAD MENU LOADED");
     var token = localStorage.getItem("id_token");
     if (token) {
-        // console.log(token);
+        console.log(token);
         $.ajax({
             type: 'POST', 
             url: pretty("?module=login&function=get_user"),
             async:false, 
             data : {token: token},
             success: function (data) { 
+                console.log(data);
                 data_parse=JSON.parse(data);
                 data_parse=data_parse[0];
                 $('#menu_li').html(

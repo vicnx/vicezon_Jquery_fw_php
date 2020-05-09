@@ -9,6 +9,7 @@ function clics_varios(){
     $('#recover').on('click', function(){
         location.href = pretty('?module=login&function=list_recover_send_mail');
     })
+    
 }
 
 $(document).ready(function(){

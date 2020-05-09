@@ -55,4 +55,13 @@ class login_model {
         // return $data;
         return $this->bll->update_recover_token_BLL($data);
     }
+
+    function register_social($data){
+        // return $data;
+        return $this->bll->register_social_BLL($data);
+    }
+
+    function check_social($data){
+        return $this->bll->check_social_BLL($data);
+    }
 }

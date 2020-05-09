@@ -29,7 +29,7 @@
             require(CLIENT_LOGIN_VIEW_PATH . "inc/register_top_page.html");
             require(CLIENT_VIEW_PATH . "inc/client_menu.html");
             require(CLIENT_VIEW_PATH . "inc/client_header.html");
-			loadView(CLIENT_LOGIN_VIEW_PATH,'recover.html');
+			loadView(CLIENT_LOGIN_VIEW_PATH,'change_password.html');
 			require(CLIENT_VIEW_PATH . "inc/client_footer.html");
 		}
 
@@ -38,7 +38,7 @@
             require(CLIENT_LOGIN_VIEW_PATH . "inc/register_top_page.html");
             require(CLIENT_VIEW_PATH . "inc/client_menu.html");
             require(CLIENT_VIEW_PATH . "inc/client_header.html");
-			loadView(CLIENT_LOGIN_VIEW_PATH,'recover_email.html');
+			loadView(CLIENT_LOGIN_VIEW_PATH,'request_password.html');
 			require(CLIENT_VIEW_PATH . "inc/client_footer.html");
 		}
 
@@ -126,6 +126,19 @@
 				loadModel(CLIENT_MODEL_LOGIN, "login_model", "recover_password",$data);
 				echo json_encode("done");
 			}
+			// echo json_encode($result);
+		}
+
+		function social_login(){
+			$data=$_POST['datos'];
+			$result=loadModel(CLIENT_MODEL_LOGIN, "login_model", "check_social",$data);
+			if ($result == null){//NO ESTA REGISTRADO AUN
+				$insert=loadModel(CLIENT_MODEL_LOGIN, "login_model", "register_social",$data);
+				// echo json_encode("registered")
+			}
+			$token_jwt=generate_token_JWT($data['uid']);
+			echo $token_jwt;
+			// echo json_encode($insert);
 			// echo json_encode($result);
 		}
 	}

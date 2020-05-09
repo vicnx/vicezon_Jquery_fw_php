@@ -1,0 +1,35 @@
+.btn_google{
+    background-color: rgb(255, 75, 75); /* Blue background */
+    border: none; /* Remove borders */
+    color: white !important; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+}
+.btn_google:hover{
+    background-color: rgb(225, 65, 65);
+}
+.btn_google i{
+    margin-right: 5px;
+}
+
+.btn_ghub{
+    background-color: rgb(48, 48, 48); /* Blue background */
+    border: none; /* Remove borders */
+    color: white !important; /* White text */
+    padding: 12px 16px; /* Some padding */
+    font-size: 16px; /* Set a font size */
+    cursor: pointer; /* Mouse pointer on hover */
+}
+.btn_ghub:hover{
+    background-color: rgb(0, 0, 0);
+}
+.btn_ghub i{
+    margin-right: 5px;
+}
+.social_login{
+    margin-bottom: 20px;
+}
+hr{
+    margin-bottom: 20px;
+}

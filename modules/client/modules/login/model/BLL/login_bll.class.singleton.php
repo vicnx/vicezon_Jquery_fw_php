@@ -60,4 +60,13 @@
 			// return $data;
 			return $this->dao->update_recover_token($this->db,$data);
 		}
+		public function register_social_BLL($data){
+			// return $data;
+			return $this->dao->register_social($this->db,$data);
+		}
+
+		public function check_social_BLL($data){
+			// return $data;
+			return $this->dao->check_social($this->db,$data);
+		}
 	}
