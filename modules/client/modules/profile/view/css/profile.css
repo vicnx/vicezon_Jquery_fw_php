@@ -1,0 +1,202 @@
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    color: #000;
+  }
+  
+  .client-profile .card {
+    border-radius: 10px;
+  }
+  
+  .client-profile .card .card-header .profile_img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin: 10px auto;
+    border: 10px solid #ccc;
+    border-radius: 50%;
+  }
+  
+  .client-profile .card h3 {
+    font-size: 20px;
+    font-weight: 700;
+  }
+  
+  .client-profile .card p {
+    font-size: 16px;
+    color: #000;
+  }
+  
+  .client-profile .table th,
+  .client-profile .table td {
+    font-size: 14px;
+    padding: 5px 10px;
+    color: #000;
+  }
+  .fa-eye{
+    cursor: pointer;
+    margin-left: 40%;
+  }
+  /* 1. Ensure this sits above everything when visible */
+#modal_factura {
+  position: absolute;
+  z-index: 10000; /* 1 */
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  width: 100%;
+  height: 100%;
+}
+
+#modal_factura.is-visible {
+  visibility: visible;
+}
+
+.modal-overlay {
+position: fixed;
+z-index: 10;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: hsla(0, 0%, 0%, 0.5);
+visibility: hidden;
+opacity: 0;
+transition: visibility 0s linear 0.3s, opacity 0.3s;
+}
+
+#modal_factura.is-visible .modal-overlay {
+opacity: 1;
+visibility: visible;
+transition-delay: 0s;
+}
+
+.modal-wrapper {
+position: absolute;
+z-index: 9999;
+top: 6em;
+left: 40%;
+width: 50%;
+margin-left: -16em;
+background-color: #fff;
+box-shadow: 0 0 1.5em hsla(0, 0%, 0%, 0.35);
+}
+
+.modal-transition {
+transition: all 0.3s 0.12s;
+transform: translateY(-10%);
+opacity: 0;
+}
+
+#modal_factura.is-visible .modal-transition {
+transform: translateY(0);
+opacity: 1;
+}
+
+.modal-header,
+.modal-content {
+padding: 1em;
+}
+
+.modal-header {
+position: relative;
+background-color: #fff;
+box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.06);
+border-bottom: 1px solid #e8e8e8;
+}
+
+.exit-modal {
+position: absolute;
+top: 0;
+right: 0;
+padding: 1em;
+color: #aaa;
+background: none;
+border: 0;
+}
+
+.modal-close:hover {
+color: #777;
+}
+
+.modal-heading {
+font-size: 1.125em;
+margin: 0;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+}
+
+.modal-content > *:first-child {
+margin-top: 0;
+}
+
+.modal-content > *:last-child {
+margin-bottom: 0;
+}
+.cimagen{
+  margin-right: 5px;
+  width: 35px;
+  height: auto;
+  white-space: nowrap;
+}
+
+.saldo_div{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+}
+
+.button_profile{
+  margin: 5px;
+  background-color: rgb(255, 255, 255); /* Blue background */
+  border: none; /* Remove borders */
+  color: rgb(0, 0, 0) !important; /* White text */
+  padding: 12px 16px; /* Some padding */
+  font-size: 16px; /* Set a font size */
+  cursor: pointer; /* Mouse pointer on hover */
+}
+
+.button_profile:hover{
+  background-color: rgb(231, 231, 231); /* Blue background */
+}
+
+.modal-generate {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 300px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+.modal-generate-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 40%;
+}
+
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+.botones_saldo{
+  display: flex;
+  flex-wrap: wrap;
+}

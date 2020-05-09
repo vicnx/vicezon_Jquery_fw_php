@@ -1,0 +1,86 @@
+<div class="client-profile py-4">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <div class="card shadow-sm">
+            <div class="card-header bg-transparent text-center">
+              <img id="profile_avatar" class="profile_img" src="" alt="">
+              <h3 id="profile_name"></h3>
+            </div>
+            <div class="card-body">
+              <p id='profile_id' class="mb-0"></p>
+              <p id='profile_username' class="mb-0"></p>
+              <p id='profile_email' class="mb-0"></p>
+              <p id='profile_saldo' class="mb-0"></p>
+            </div>
+              <a id="update_profile" href="#" class="button_profile">Update profile</a>
+              <div class="saldo_div">
+                <a id="add_saldo" href="#" class="button_profile">Añadir saldo</a>
+                <a id="generate_gift_code" href="#" class="button_profile">Generate code</a>
+              </div>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="card shadow-sm">
+            <div class="card-header bg-transparent border-0">
+              <h3 class="mb-0"><i class="far fa-clone pr-1"></i>LAST PURCHASES</h3>
+            </div>
+            <div class="card-body pt-0">
+              <table class="table table-bordered compras">
+                <tr>
+                  <th width="5%">IDFACTURA</th>
+                  <td>Total</td>
+                  <td>Fecha</td>
+                  <td width="15%">Ver mas</td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="modal_factura">
+    <div class="modal-overlay modal-toggle"></div>
+    <div class="modal-wrapper modal-transition">
+      <div class="modal-header">
+        <h2 class="modal-heading"></h2>
+      </div>
+      <div class="modal-body">
+        <div class="modal-content">
+          <table class="table table-hover">
+            <thead class="mdb-color darken-3">
+              <tr class="text-white">
+                  <th>#</th>
+                  <th>IDPRODUCT</th>
+                  <th>NOMBRE</th>
+                  <th>QTY</th>
+                  <th>COST</th>
+              </tr>
+            </thead>
+            <tbody class="line_table">
+            </tbody>
+          </table>
+          <button class="exit_modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="open-modal-generate" class="modal-generate">
+    <div class="modal-generate-content">
+      <span id="modal-close-generate" class="close">&times;</span>
+      <h3>Selecciona la cantidad</h3>
+      <div class="botones_saldo">
+        <a id="dinero" href="#" class="button_profile">500</a>
+        <a id="dinero" href="#" class="button_profile">1000</a>
+        <a id="dinero" href="#" class="button_profile">1000</a>
+        <a id="dinero" href="#" class="button_profile">1000</a>
+        <a id="dinero" href="#" class="button_profile">1000</a>
+        <a id="dinero" href="#" class="button_profile">1000</a>
+        <a id="dinero" href="#" class="button_profile">1000</a>
+        <a id="dinero" href="#" class="button_profile">1000</a>
+      </div>
+    </div>
+  </div>
+  <!-- /client Profile -->

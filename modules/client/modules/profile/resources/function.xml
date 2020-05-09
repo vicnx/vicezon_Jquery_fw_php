@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>list_profile</name>
+        <uri>list_profile</uri>
+    </function>
+    <function>
+        <name>user_data</name>
+        <uri>user_data</uri>
+    </function>
+</functions>

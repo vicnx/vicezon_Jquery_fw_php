@@ -25,4 +25,9 @@
         <uri>login</uri>
         <default_function>list_login</default_function>
     </module>
+    <module>
+        <name>profile</name>
+        <uri>profile</uri>
+        <default_function>list_profile</default_function>
+    </module>
 </modules>

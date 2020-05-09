@@ -6,7 +6,7 @@ function menu_clicks(){
     })
     //boton profile\
     $("#profile").on("click",function(){
-        location.href = "index.php?page=profile";
+        location.href = pretty('?module=profile');
     })
     //boton logout va al controlador del login
     $("#logout").on("click",function(){

@@ -88,4 +88,13 @@
         //LOGIN/MODEL/MODEL (SITE_ROOT)
         define('CLIENT_MODEL_LOGIN', CLIENT_MODULES_PATH . 'login/model/model/');
         define('CLIENT_UTILS_LOGIN', CLIENT_MODULES_PATH . 'login/utils/');
+
+        //MODULE PROFILE
+        //VIEW PATH login (view del login) (SITE_ROOT)
+        define('CLIENT_PROFILE_VIEW_PATH', CLIENT_MODULES_PATH . 'profile/view/');
+        //seach PATH (SITE_PATH)
+        define('CLIENT_PROFILE_PATH', CLIENT_SITE_PATH . 'modules/profile/');
+        //PROFILE/MODEL/MODEL (SITE_ROOT)
+        define('CLIENT_MODEL_PROFILE', CLIENT_MODULES_PATH . 'profile/model/model/');
+        define('CLIENT_UTILS_PROFILE', CLIENT_MODULES_PATH . 'profile/utils/');
 ?>
