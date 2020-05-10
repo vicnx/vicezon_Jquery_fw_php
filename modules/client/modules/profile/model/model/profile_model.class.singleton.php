@@ -22,4 +22,22 @@ class profile_model {
     public function user_data($data){
         return $this->bll->user_data_BLL($data);
     }
+    public function generator($data){
+        return $this->bll->generator_BLL($data);
+    }
+    public function delete_all_codes(){
+        return $this->bll->delete_all_codes_BLL();
+    }
+    public function select_all_codes(){
+        return $this->bll->select_all_codes_BLL();
+    }
+    public function check_code($code){
+        return $this->bll->check_code_BLL($code);
+    }
+    public function code_inactive($code){
+        return $this->bll->code_inactive_BLL($code);
+    }
+    public function insert_money($data){
+        return $this->bll->insert_money_BLL($data);
+    }
 }

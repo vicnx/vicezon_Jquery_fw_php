@@ -64,7 +64,7 @@ function generate_token_JWT($id){
     $header = '{"typ":"JWT", "alg":"HS256"}';
     $arrayPayload =array(
      'iat' => time(),
-     'exp'=> time() + (5 * 60),
+     'exp'=> time() + (15 * 60),
      'name'=> $id
     );
     $payload = json_encode($arrayPayload);
@@ -80,6 +80,28 @@ function decode_token($token){
     $JWT = new JWT;
     $json = $JWT->decode($token, $secret);
     return $json;
+}
+
+function activity($token){
+    $arrayPayload = decode_token($token);
+    $name=  json_decode($arrayPayload)->name;               //payload del token que viene de localStorage
+    $cmpr_token = generate_token_JWT($name);    // con el nombre del token_user generamos un nuevo token
+    $newPayload = decode_token($cmpr_token);            // decodificamos el nuevo token para comparar fechas
+
+    if(  (json_decode($arrayPayload)->exp) > (json_decode($newPayload)->iat)  ){
+        $result = array(
+            'success' => true,
+            'token' => $cmpr_token,
+            'name' => json_decode($arrayPayload)->name
+        );
+    } else {
+        $result = array(
+            'error' => true,
+            'name' => "token invalid"
+        );
+    }
+
+    return $result;
 }
 
 ?>

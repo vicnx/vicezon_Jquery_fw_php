@@ -61,10 +61,18 @@ function profile(){
         }else{// si todo va bien pinta en profile.
             $('#profile_avatar').attr('src',data[0].avatar);
             $('#profile_name').html(data[0].first_name+" "+data[0].last_name);
-            $('#profile_id').html("<b>ID: </b> "+data[0].id);
-            $('#profile_username').html("<b>Username: </b> "+data[0].username);
-            $('#profile_email').html("<b>Email: </b> "+data[0].email);
-            $('#profile_saldo').html("<b>Saldo: </b> "+data[0].saldo);
+            $('#info_body_cart').html(
+                '<p id="profile_id" class="mb-0"><b>ID: </b> '+data[0].id+'</p>'+
+                '<p id="profile_username" class="mb-0"><b>Username: </b> '+data[0].username+'</p>'+
+                '<p id="profile_email" class="mb-0"><b>Email: </b> '+data[0].email+'</p>'+
+                '<p id="profile_saldo" class="mb-0"><b>Saldo: </b> '+data[0].saldo+' $</p>'+
+                '<p id="profile_type" class="mb-0"><b>Rank: </b> '+data[0].type+'</p>'
+            );
+            // $('#profile_id').html("<b>ID: </b> "+data[0].id);
+            // $('#profile_username').html("<b>Username: </b> "+data[0].username);
+            // $('#profile_email').html("<b>Email: </b> "+data[0].email);
+            // $('#profile_saldo').html("<b>Saldo: </b> "+data[0].saldo);
+            // $('#profile_type').html("<b>Rank: </b> "+data[0].type);
             //DESCOMENTAR CON EL CARRITO REALIZADO
             // compras('module/client/module/profile/controller/cprofile.php?&op=facturas')
             // .then(function(data){
@@ -86,6 +94,7 @@ function profile(){
         }
         
     })
+    add_saldo();
 }
 //DESCOMENTAR CON CART REALZIADO
 // function clicks(){
@@ -135,18 +144,72 @@ function profile(){
 //       });
 // }
 
-function saldo(){
-    $('#generate_gift_code').on('click', function(e) {
-        e.preventDefault();
-        $('#open-modal-generate').css("display","block");
-    });
-    $('#modal-close-generate').on('click', function(e) {
-        e.preventDefault();
-        $('#open-modal-generate').css("display","none");
+function add_saldo(){
+    var check_code = function(url,code,token){
+        return new Promise(function(resolve, reject) {
+            $.ajax({ 
+                     type: 'POST', 
+                     url: url,
+                     data:{code: code,token: token},
+                     dataType: 'json', 
+                 })
+                 .done(function( data) {
+                     resolve(data);
+                 })
+                 .fail(function(textStatus) {
+                       console.log("Error en la promesa");
+            });
+        });
+    }
+    $('#add_saldo').on('click', function(e) {
+        var token=localStorage.getItem('id_token');
+        $.confirm({
+            title: 'Añádir Saldo',
+            content: '' +
+            '<form action="" class="formName">' +
+                '<div class="form-group">' +
+                    '<label>Ingresa tu gift code</label>' +
+                    '<input type="text" placeholder="Gift code" class="code form-control" required />' +
+                '</div>' +
+            '</form>',
+            buttons: {
+                formSubmit: {
+                    text: 'Submit',
+                    btnClass: 'btn-blue',
+                    action: function () {
+                        var code = this.$content.find('.code').val();
+                        if(!code){
+                            $.alert('El campo no puede estar vacio');
+                            return false;
+                        }
+                        check_code(pretty("?module=profile&function=check_code"),code,token)
+                        .then(function(data){
+                            console.log(data);
+                            $.alert('Has ingresado ' + data + " $ en tu cuenta!");
+                            pretty("?module=profile");
+
+                        });
+                        
+                    }
+                },
+                cancel: function () {
+                    //close
+                },
+            },
+            onContentReady: function () {
+                // bind to events
+                var jc = this;
+                this.$content.find('form').on('submit', function (e) {
+                    // if the user submits the form by pressing enter in the field.
+                    e.preventDefault();
+                    jc.$$formSubmit.trigger('click'); // reference the button and click it
+                });
+            }
+        });
     });
 }
 
 $(document).ready(function() {
-    profile();
-    saldo();
+    // profile();//cargado en init.js del login
+    // saldo();//cargado en init.js del login
 })

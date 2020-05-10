@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-05-2020 a las 13:39:57
+-- Tiempo de generación: 10-05-2020 a las 19:45:37
 -- Versión del servidor: 10.4.11-MariaDB
 -- Versión de PHP: 7.4.2
 
@@ -42,8 +42,8 @@ INSERT INTO `brands` (`idbrand`, `namebrand`, `views`) VALUES
 (1, 'samsung', 12),
 (2, 'xiaomi', 32),
 (3, 'iphone', 73),
-(4, 'sony', 95),
-(5, 'motorola', 31),
+(4, 'sony', 98),
+(5, 'motorola', 33),
 (6, 'Oppo', 0),
 (7, 'redmi', 0),
 (8, 'hola', 0);
@@ -163,6 +163,27 @@ INSERT INTO `loginusers` (`iduser`, `rankuser`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `money_codes`
+--
+
+CREATE TABLE `money_codes` (
+  `id` int(11) NOT NULL,
+  `code` varchar(255) NOT NULL,
+  `value` int(255) NOT NULL,
+  `state` int(11) NOT NULL DEFAULT 1
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `money_codes`
+--
+
+INSERT INTO `money_codes` (`id`, `code`, `value`, `state`) VALUES
+(1, '6UPPO-HY9YU-1BVBS', 5025, 0),
+(2, 'R2XTR-BXPCN-YO7IO', 5025, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `tablets`
 --
 
@@ -186,7 +207,7 @@ CREATE TABLE `tablets` (
 
 INSERT INTO `tablets` (`idproduct`, `nombre`, `price`, `marca`, `fpublic`, `colores`, `sim`, `rating`, `imagen`, `views`, `stock`) VALUES
 (1, 'Oppo B', 8900, 4, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 5.14, 'modules/admin/module/tablets/view/img/11.jpg', 0, 1000),
-(2, 'Alcatel R', 208, 5, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 4.93, 'modules/admin/module/tablets/view/img/16.jpg', 1, 1000),
+(2, 'Alcatel R', 208, 5, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 4.93, 'modules/admin/module/tablets/view/img/16.jpg', 2, 1000),
 (3, 'Honor G', 5780, 1, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 0.33, 'modules/admin/module/tablets/view/img/15.jpg', 0, 1000),
 (4, 'Nokia F', 4072, 1, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 8.91, 'modules/admin/module/tablets/view/img/3.jpg', 0, 1000),
 (5, 'IPadZ', 3119, 1, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 8.3, 'modules/admin/module/tablets/view/img/13.jpg', 0, 1000),
@@ -197,9 +218,9 @@ INSERT INTO `tablets` (`idproduct`, `nombre`, `price`, `marca`, `fpublic`, `colo
 (10, 'Cubot pad', 3385, 2, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 4.96, 'modules/admin/module/tablets/view/img/4.jpg', 0, 1000),
 (11, 'IPad F', 3059, 5, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 8.77, 'modules/admin/module/tablets/view/img/17.jpg', 0, 1000),
 (12, 'Nokia pad', 422, 5, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 6.43, 'modules/admin/module/tablets/view/img/18.jpg', 0, 1000),
-(13, 'Alcatel note', 5486, 4, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 6.68, 'modules/admin/module/tablets/view/img/12.jpg', 0, 1000),
-(14, 'Realme Version', 8362, 4, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 9.63, 'modules/admin/module/tablets/view/img/17.jpg', 1, 1000),
-(15, 'Nokia air', 4683, 5, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 8.4, 'modules/admin/module/tablets/view/img/2.jpg', 0, 1000),
+(13, 'Alcatel note', 5486, 4, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 6.68, 'modules/admin/module/tablets/view/img/12.jpg', 2, 1000),
+(14, 'Realme Version', 8362, 4, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 9.63, 'modules/admin/module/tablets/view/img/17.jpg', 2, 1000),
+(15, 'Nokia air', 4683, 5, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 8.4, 'modules/admin/module/tablets/view/img/2.jpg', 1, 1000),
 (16, 'Windows A', 6160, 4, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 9.42, 'modules/admin/module/tablets/view/img/16.jpg', 0, 1000),
 (17, 'IPad C', 6953, 1, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 1.06, 'modules/admin/module/tablets/view/img/14.jpg', 0, 1000),
 (18, 'Nokia Version', 2838, 2, '12/02/2019', 'Azul:Negro:Blanco:Rojo:', 'Yes', 0.92, 'modules/admin/module/tablets/view/img/16.jpg', 0, 1000),
@@ -251,11 +272,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `username`, `first_name`, `last_name`, `email`, `password`, `type`, `avatar`, `active`, `token_check`, `token_recover`, `saldo`, `register_type`) VALUES
-('test', 'test', 'test', 'test', 'test@test.com', '$2y$10$XJ4EXQ/A6wTs4fwZsWSJaOXO5x1guP2PC.4qQcEM48nIMYFqWAB9m', 'client', 'https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452?s=40&d=identicon', b'0', '788b957c32499acd50f7', '8f6684fe6b304379e3ab', 100000, 'local'),
-('test2', 'test2', 'test', 'test', 'test2@test.com', '$2y$10$Ep.MWfg1BFSK6BHRgMZX0uJWjO22ccCq6wuSwk8EpG9R2tJtd/1Ly', 'client', 'https://www.gravatar.com/avatar/f2c97b1f2d2898cd2d6466ce95d4ba33?s=40&d=identicon', b'0', '52b4142155020d1ba482', 'ed85bfe8a5d5a6e7e025', 100000, 'local'),
-('test3', 'test3', 'test', 'test', 'test3@test.com', '$2y$10$OWWtcHJLHLxTnWoTKDqyge7vJ9lPlkgu/FvVmBeTGxcJJeURjjJzu', 'client', 'https://www.gravatar.com/avatar/59c02e9fd89cfb6fa54b67e846d0631b?s=40&d=identicon', b'0', 'a975fa61855efc508b9d', 'c42befa8974aaffa2bd9', 100000, 'local'),
-('test4', 'test4', 'test', 'test', 'test4@test.com', '$2y$10$XsKbb/MR5aUjE8EVF7ufWeBzN9eBBQfUZ/nPW57x5ijtWo0wkj/86', 'client', 'https://www.gravatar.com/avatar/33ead0fffce3518ee97d59348a3708af?s=40&d=identicon', b'0', '7bcadd37efe11c146c4a', '5fd80f28187033111189', 100000, 'local'),
-('test5', 'test5', 'test', 'test', 'tes5t@test.com', '$2y$10$4ElQZeXKo8buPfQYKHrS4ONwpPlf/FK51za2GMCSvRjDaS5.qpEe6', 'client', 'https://www.gravatar.com/avatar/1eb2ea9fdfa2af7757de105fce300695?s=40&d=identicon', b'0', 'aa18104747dec37deaf9', '577f9d9ee72eb1737890', 100000, 'local');
+('107389958768449504522', 'andanivicente', 'Vicente', 'Andani', 'andanivicente@gmail.com', '', 'admin', 'https://lh3.googleusercontent.com/a-/AOh14GgGcGouCGpr-Eoa_EeLrGddmsRh9eWOdH956hKd', b'1', '', 'b769a03223f8e8265c63', 135175, 'google.com'),
+('57725324', 'andanivicente', '', '', 'andanivicente@gmail.com', '', 'client', 'https://avatars2.githubusercontent.com/u/57725324?v=4', b'1', '', '3d67fb239756a8d98c32', 100000, 'github.com'),
+('test', 'test', 'test', 'test', 'andanivicente@gmail.com', '$2y$10$imZ84uDDAu89OPct3juuReqeZTnDnomHZkiml3Z0c6W9r0D/JD./C', 'client', 'https://api.adorable.io/avatars/285/e995f7903051893f9a0f992d8542f3eb', b'1', '5ced673a747be4273d77', '1ac4bf6d7d4d2f27ba6d', 100000, 'local'),
+('test2', 'test2', 'test', 'test', 'test@test.com', '$2y$10$UHGvQPgaw2wqLaXY1N94GuAgdfmYm1VU864E2FfIwnfQRn/gq99c2', 'client', 'https://www.gravatar.com/avatar/b642b4217b34b1e8d3bd915fc65c4452?s=40&d=identicon', b'0', '54bc570913869b4733bc', 'c0448c84d87d3dc25eec', 100000, 'local');
 
 --
 -- Índices para tablas volcadas
@@ -284,6 +304,12 @@ ALTER TABLE `factura_linea`
 --
 ALTER TABLE `likes`
   ADD PRIMARY KEY (`idproduct`);
+
+--
+-- Indices de la tabla `money_codes`
+--
+ALTER TABLE `money_codes`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indices de la tabla `tablets`
@@ -319,6 +345,12 @@ ALTER TABLE `facturas`
 --
 ALTER TABLE `factura_linea`
   MODIFY `idlinea` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
+-- AUTO_INCREMENT de la tabla `money_codes`
+--
+ALTER TABLE `money_codes`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT de la tabla `tablets`

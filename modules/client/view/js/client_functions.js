@@ -123,7 +123,7 @@ function set_avatar(){
 }
 $(document).ready(function() {
     // client_check();
-    adminpanel();
-    menu_clicks();
+    // adminpanel();//se carga en init.js del login
+    menu_clicks();//se carga en init.js del login
     // set_avatar();
 });

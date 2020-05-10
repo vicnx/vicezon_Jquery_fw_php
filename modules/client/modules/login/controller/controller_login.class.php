@@ -94,7 +94,14 @@
 		function get_user(){
 			$data=$_POST['token'];
 			$result=loadModel(CLIENT_MODEL_LOGIN, "login_model", "get_user",$data);
-			echo json_encode($result);
+			if ($result){
+				$new_token_JWT=generate_token_JWT($result[0]['id']);
+			}
+			$arresult= array(
+				"token" => $new_token_JWT,
+				"result" => $result
+			);
+			echo json_encode($arresult);
 		}
 
 		function recover_send_mail(){
@@ -140,5 +147,11 @@
 			echo $token_jwt;
 			// echo json_encode($insert);
 			// echo json_encode($result);
+		}
+
+		function activity_check_token(){
+			$data=$_POST['token'];
+			activity($data);
+			echo json_encode(activity($data)['success']); 
 		}
 	}

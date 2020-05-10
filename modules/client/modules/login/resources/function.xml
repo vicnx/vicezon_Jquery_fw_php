@@ -44,4 +44,8 @@
         <name>social_login</name>
         <uri>social_login</uri>
     </function>
+    <function>
+        <name>activity_check_token</name>
+        <uri>activity_check_token</uri>
+    </function>
 </functions>

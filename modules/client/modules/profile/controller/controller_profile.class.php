@@ -4,6 +4,7 @@
 			$_SESSION['module'] = "PROFILE";
 			//INcluimos las funciones para descifrar el token
 			include(CLIENT_UTILS_LOGIN . "functions_login.inc.php");
+			include(CLIENT_UTILS_PROFILE . "functions_profile.inc.php");
 			
 	    }
 		//profile
@@ -20,5 +21,41 @@
 			$data=$_POST['token'];
 			$result=loadModel(CLIENT_MODEL_PROFILE, "profile_model", "user_data", $data);
 			echo json_encode($result);
+		}
+
+		function generator(){
+			$code=generate_money_code();
+			$data=array(
+				'money'=>$_POST['money'],
+				'code'=>$code,
+			);
+			$result=loadModel(CLIENT_MODEL_PROFILE, "profile_model", "generator", $data);
+			echo json_encode($code);
+		}
+
+		function delete_all_codes(){
+			$result=loadModel(CLIENT_MODEL_PROFILE, "profile_model", "delete_all_codes");
+			echo json_encode("deleted");
+		}
+		function select_all_codes(){
+			$result=loadModel(CLIENT_MODEL_PROFILE, "profile_model", "select_all_codes");
+			echo json_encode($result);
+		}
+
+		function check_code(){
+			$code=$_POST['code'];
+			$result=loadModel(CLIENT_MODEL_PROFILE, "profile_model", "check_code",$code);
+			if($result==null){
+				echo json_encode("fail");
+			}else{
+				$code_inactive=loadModel(CLIENT_MODEL_PROFILE, "profile_model", "code_inactive",$code);
+				$data=array(
+					'money'=>$result[0]['value'],
+					'token'=>$_POST['token'],
+				);
+				$result2=loadModel(CLIENT_MODEL_PROFILE, "profile_model", "insert_money",$data);
+				echo json_encode($result[0]['value']);
+			}
+			// echo json_encode($data);
 		}
 	}

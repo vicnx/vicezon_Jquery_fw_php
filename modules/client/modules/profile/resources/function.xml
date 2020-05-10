@@ -8,4 +8,20 @@
         <name>user_data</name>
         <uri>user_data</uri>
     </function>
+    <function>
+        <name>generator</name>
+        <uri>generator</uri>
+    </function>
+    <function>
+        <name>delete_all_codes</name>
+        <uri>delete_all_codes</uri>
+    </function>
+    <function>
+        <name>select_all_codes</name>
+        <uri>select_all_codes</uri>
+    </function>
+    <function>
+        <name>check_code</name>
+        <uri>check_code</uri>
+    </function>
 </functions>

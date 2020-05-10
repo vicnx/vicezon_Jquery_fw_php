@@ -23,4 +23,41 @@ class profile_dao {
         $stmt = $db->ejecutar($sql);
         return $db->listar($stmt);
     }
+
+    public function insert_code_bd($db,$data) {
+        $money=$data['money'];
+        $code=$data['code'];
+        $sql="INSERT INTO money_codes (code, value, state) VALUES ('$code','$money','1')";
+        return $db->ejecutar($sql);
+    }
+
+    public function delete_all_codes($db) {
+        $sql="TRUNCATE TABLE money_codes;";
+        return $db->ejecutar($sql);
+    }
+    public function select_all_codes($db) {
+        $sql="Select * FROM money_codes";
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+
+    public function check_code($db,$code) {
+        $sql="Select * FROM money_codes Where code='$code' and state=1";
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+    public function code_inactive($db,$code) {
+        $sql="UPDATE money_codes SET state=0 Where code='$code'";
+        return $db->ejecutar($sql);
+    }
+    public function insert_money($db,$data) {
+        $money=$data['money'];
+        $token=$data['token'];
+        $json = decode_token($token);
+        $id=  json_decode($json)->name;
+        $sql="UPDATE users SET saldo=saldo+'$money' where id='$id'";
+        return $db->ejecutar($sql);
+    }
+
+    
 }
