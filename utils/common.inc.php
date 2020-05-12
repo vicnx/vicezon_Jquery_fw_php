@@ -55,3 +55,28 @@ function loadError(){
     loadView(INC_PATH,'404.html');
     require(CLIENT_VIEW_PATH . "inc/client_footer.html");
 }
+
+function generate_token_JWT($id){
+    $data = file_get_contents("view/js/apis_app.json"); //obtengo el contenido de apis.json
+    $apis= json_decode($data,true); //lo convierto en array
+    $secret=$apis[0]['secret_token'];//obtengo el sewcret
+    $header = '{"typ":"JWT", "alg":"HS256"}';
+    $arrayPayload =array(
+     'iat' => time(),
+     'exp'=> time() + (15 * 60),
+     'name'=> $id
+    );
+    $payload = json_encode($arrayPayload);
+
+    $JWT = new JWT;
+    return $JWT->encode($header, $payload, $secret);
+}
+
+function decode_token($token){
+    $data = file_get_contents("view/js/apis_app.json"); //obtengo el contenido de apis.json
+    $apis= json_decode($data,true); //lo convierto en array
+    $secret=$apis[0]['secret_token'];//obtengo el sewcret
+    $JWT = new JWT;
+    $json = $JWT->decode($token, $secret);
+    return $json;
+}

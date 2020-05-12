@@ -20,4 +20,20 @@
         <name>busqueda</name>
         <uri>busqueda</uri>
     </function>
+    <function>
+        <name>check_likes</name>
+        <uri>check_likes</uri>
+    </function>
+    <function>
+        <name>check_like_on_click</name>
+        <uri>check_like_on_click</uri>
+    </function>
+    <function>
+        <name>do_like</name>
+        <uri>do_like</uri>
+    </function>
+    <function>
+        <name>remove_like</name>
+        <uri>remove_like</uri>
+    </function>
 </functions>

@@ -162,4 +162,25 @@
 				}
 			}
 		}
+		public function check_like_on_click_BLL($data){
+			// return $name;
+			// $this->dao->addview_product($this->db,$data);
+			return $this->dao->check_like_click($this->db,$data);
+		}
+
+		public function do_like_BLL($data){
+			// return $name;
+			// $this->dao->addview_product($this->db,$data);
+			return $this->dao->do_like($this->db,$data);
+		}
+		public function remove_like_BLL($data){
+			// return $name;
+			// $this->dao->addview_product($this->db,$data);
+			return $this->dao->remove_like($this->db,$data);
+		}
+		public function check_likes_BLL($data){
+			// return $name;
+			// $this->dao->addview_product($this->db,$data);
+			return $this->dao->check_likes($this->db,$data);
+		}
 	}

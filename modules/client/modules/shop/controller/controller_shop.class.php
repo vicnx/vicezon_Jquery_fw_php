@@ -40,4 +40,41 @@
 			$json = loadModel(CLIENT_MODEL_SHOP, "shop_model", "details",$idproduct);
 			echo json_encode($json);
 		}
+		function check_likes(){
+			$token=$_POST['token'];
+			$json = loadModel(CLIENT_MODEL_SHOP, "shop_model","check_likes",$token);
+			echo json_encode($json);
+		}
+		function check_like_on_click(){
+			$data = array(
+				'token' => $_POST['token'],
+				'idproduct'=> $_POST['idproduct']
+			);
+			$json = loadModel(CLIENT_MODEL_SHOP, "shop_model", "check_like_on_click",$data);
+
+			if($json==null){
+				$result=false;
+			}else{
+				$result=true;
+			}
+			echo json_encode($result);
+		}
+
+		function do_like(){
+			$data = array(
+				'token' => $_POST['token'],
+				'idproduct'=> $_POST['idproduct']
+			);
+			$json = loadModel(CLIENT_MODEL_SHOP, "shop_model", "do_like",$data);
+			echo json_encode($json);
+		}
+
+		function remove_like(){
+			$data = array(
+				'token' => $_POST['token'],
+				'idproduct'=> $_POST['idproduct']
+			);
+			$json = loadModel(CLIENT_MODEL_SHOP, "shop_model", "remove_like",$data);
+			echo json_encode($json);
+		}
 	}

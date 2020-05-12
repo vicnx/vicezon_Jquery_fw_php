@@ -57,31 +57,6 @@ function generate_token_check_secure($longitud){
     return bin2hex(openssl_random_pseudo_bytes(($longitud - ($longitud % 2)) / 2));
 }
 
-function generate_token_JWT($id){
-    $data = file_get_contents("view/js/apis_app.json"); //obtengo el contenido de apis.json
-    $apis= json_decode($data,true); //lo convierto en array
-    $secret=$apis[0]['secret_token'];//obtengo el sewcret
-    $header = '{"typ":"JWT", "alg":"HS256"}';
-    $arrayPayload =array(
-     'iat' => time(),
-     'exp'=> time() + (15 * 60),
-     'name'=> $id
-    );
-    $payload = json_encode($arrayPayload);
-
-    $JWT = new JWT;
-    return $JWT->encode($header, $payload, $secret);
-}
-
-function decode_token($token){
-    $data = file_get_contents("view/js/apis_app.json"); //obtengo el contenido de apis.json
-    $apis= json_decode($data,true); //lo convierto en array
-    $secret=$apis[0]['secret_token'];//obtengo el sewcret
-    $JWT = new JWT;
-    $json = $JWT->decode($token, $secret);
-    return $json;
-}
-
 function activity($token){
     $arrayPayload = decode_token($token);
     $name=  json_decode($arrayPayload)->name;               //payload del token que viene de localStorage

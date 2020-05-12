@@ -67,15 +67,37 @@ function carousel(){
 
 //clcik de items
 function onclick_item(){
+    $('.item').on('click',function(event){
+        event.preventDefault();
+        event.stopImmediatePropagation();//esto evita que se realice 2 veces al hacer CLICK!
+        var idproductthis=$(this).attr("id");
+        if($(event.target).is('.fa-heart')){
+            favs_control($(this),idproductthis);
+        }else{
+            var idproduct= $(this).attr("id");
+            localStorage.setItem("product", idproduct);
+            window.location.href = pretty('?module=shop');
+        }
+    })
+    
     console.log("HOME: onclick_item loaded");
-    $('.item').on('click',function(e){
-        e.preventDefault();
-        e.stopImmediatePropagation();//esto evita que se realice 2 veces al hacer CLICK!
-        var idproduct= $(this).attr("id");
-        localStorage.setItem("product", idproduct);
-        window.location.href = pretty('?module=shop');
-
-        //DESCOMENTAR CON LIKES Y CART
+    // $('.item').on('click',function(e){
+    //     e.preventDefault();
+    //     e.stopImmediatePropagation();//esto evita que se realice 2 veces al hacer CLICK!
+    //     var idproduct= $(this).attr("id");
+    //     localStorage.setItem("product", idproduct);
+    //     window.location.href = pretty('?module=shop');
+    //     var idproductthis=$(this).attr("id");
+    //     console.log(idproductthis);
+    //     if($(event.target).is('.fa-heart')){
+    //         console.log(event.target);
+    //         favs_control($(this),$(this).closest('.itemlist').attr("id"));
+    //     }else{
+    //         var idproduct= $(this).attr("id");
+    //         localStorage.setItem("product", idproduct);
+    //         // window.location.href = "index.php?page=shop";
+    //     }
+        // DESCOMENTAR CON  CART
         // var idproductthis=$(this).attr("id");
         // console.log(idproductthis);
         // if($(event.target).is('.fa-heart')){
@@ -89,8 +111,8 @@ function onclick_item(){
         //     localStorage.setItem("product", idproduct);
         //     window.location.href = "index.php?page=shop";
         // }
-    })
-}
+    // })
+};
 
 
 //TOP BRANDS!
@@ -190,7 +212,7 @@ function product_more_visited(){
             }
         });
         onclick_item();
-        // send_likes_home(); //descomentar cuando esten los likes implementados.
+        send_likes_home();
     }
     function loadmoreview(){
         $('.loadmorebutton').on('click', function(){

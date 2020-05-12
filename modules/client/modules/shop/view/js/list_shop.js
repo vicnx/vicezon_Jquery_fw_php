@@ -59,6 +59,8 @@ function ajaxForSearch(ruta,option,values,order,page){//le pasamos la ruta y la 
                         )                      
                     );
                 }
+            }).then(function(likes){
+                send_likes();
             })
             $(".pagination").bootpag({
                 total: total_pages,
@@ -88,7 +90,7 @@ function ajaxForSearch(ruta,option,values,order,page){//le pasamos la ruta y la 
                                 '</div>'
                             )                      
                         );
-                        // send_likes();
+                        send_likes();
                     })
             }); 
         })
@@ -263,9 +265,18 @@ function filters(){
 function getdetails(){
     console.log("SHOP: get_details loaded");
     $('#list').on('click','.itemlist',function(event){
-        var idproduct= $(this).attr("id");
-        localStorage.setItem("product", idproduct);
-        details_shop();
+        // var idproduct= $(this).attr("id");
+        // localStorage.setItem("product", idproduct);
+        // details_shop();
+        var idproductthis=$(this).closest('.itemlist').attr("id");
+        if($(event.target).is('.fa-heart')){
+            favs_control($(this),$(this).closest('.itemlist').attr("id"));
+        }else{
+            var idproduct= $(this).attr("id");
+            localStorage.setItem("product", idproduct);
+            details_shop();
+        }
+
         // var idproductthis=$(this).closest('.itemlist').attr("id");
         // if($(event.target).is('.fa-heart')){
         //     favs_control($(this),$(this).closest('.itemlist').attr("id"));
@@ -314,13 +325,26 @@ function details_shop(){
         }
     });
     // console.log("carga details")
-    // clicks_details();
-    // check_likes_details(idproduct);
+    clicks_details();
+    check_likes_details(idproduct);
     //este boton lo que hace es borrar el localstorage y actualziar la pagina
     $('#btnvolver').on('click',function() {
         localStorage.removeItem("product");
         location.href = pretty('?module=shop');
     });
+}
+
+function clicks_details(){
+    //click fav
+    $('.infoproduct').on('click','#like',function(event){
+        var idproduct=($(this).parent().attr('id'));
+        favs_control($(this).closest('.infoproduct'),idproduct);
+    })
+    //click cart
+    // $('.infoproduct').on('click','.fa-shopping-cart',function(event){
+    //     var idproduct=($(this).parent().attr('id'));
+    //     save_product_on_cart(idproduct);
+    // })
 }
 
 $(document).ready(function() {

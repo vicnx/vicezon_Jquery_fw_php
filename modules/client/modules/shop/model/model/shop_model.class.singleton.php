@@ -64,4 +64,20 @@ class shop_model {
     public function details($arrArgument){
         return $this->bll->details_BLL($arrArgument);
     }
+
+    public function check_like_on_click($data){
+        return $this->bll->check_like_on_click_BLL($data);
+    }
+
+    public function do_like($data){
+        return $this->bll->do_like_BLL($data);
+    }
+    public function remove_like($data){
+        return $this->bll->remove_like_BLL($data);
+    }
+
+    public function check_likes($data){
+        // return $data;
+        return $this->bll->check_likes_BLL($data);
+    }
 }

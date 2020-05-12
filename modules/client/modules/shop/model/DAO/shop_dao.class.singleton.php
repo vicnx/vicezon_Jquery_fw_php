@@ -125,5 +125,48 @@ class shop_dao {
         return $db->listar($stmt);
     }
 
+    public function check_like_click($db,$data) {
+        $idproduct=$_POST['idproduct'];
+        $token=$data['token'];
+        $json= decode_token($token);
+        $id_user=  json_decode($json)->name;
+        $sql = "SELECT * FROM likes WHERE id_user='$id_user' and idproduct='$idproduct'";
+        // return $sql;
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+
+    public function do_like($db,$data) {
+        $idproduct=$_POST['idproduct'];
+        $token=$data['token'];
+        $json= decode_token($token);
+        $id_user=  json_decode($json)->name;
+        $sql = "INSERT INTO likes (id_user,idproduct) values ('$id_user','$idproduct')";
+        // return $sql;
+        return $db->ejecutar($sql);
+        // return $db->listar($stmt);
+    }
+
+    public function remove_like($db,$data) {
+        $idproduct=$_POST['idproduct'];
+        $token=$data['token'];
+        $json= decode_token($token);
+        $id_user=  json_decode($json)->name;
+        $sql = "DELETE FROM likes where id_user='$id_user' and idproduct='$idproduct'";
+        // return $sql;
+        return $db->ejecutar($sql);
+        // return $db->listar($stmt);
+    }
+
+    public function check_likes($db,$data) {
+        $token=$data;
+        $json= decode_token($token);
+        $id_user=  json_decode($json)->name;
+        $sql = "SELECT * FROM likes where id_user='$id_user'";
+        // return $sql;
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+
 
 }

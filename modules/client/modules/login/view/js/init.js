@@ -66,9 +66,12 @@ function load_menu(){
                     adminpanel();
                     menu_clicks();
                     $.getScript( "/vicezon_fw_php/modules/client/modules/profile/view/js/generate_code.js", function() {
-                        profile();
                         saldo();
                     });
+                    $.getScript( "/vicezon_fw_php/modules/client/modules/profile/view/js/cprofile.js", function() {
+                        profile();
+                    });
+                    
                     
                 })
             }else{
