@@ -30,4 +30,9 @@
         <uri>profile</uri>
         <default_function>list_profile</default_function>
     </module>
+    <module>
+        <name>cart</name>
+        <uri>cart</uri>
+        <default_function>list_cart</default_function>
+    </module>
 </modules>

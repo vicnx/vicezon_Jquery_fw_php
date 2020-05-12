@@ -72,17 +72,9 @@ function load_menu(){
                         profile();
                     });
                     
-                    
                 })
             }else{
-                if(check_auth_state()){
-                    firebase.auth().signOut()
-                    .then(function(){
-                        console.log("LOGOUT DE SOCIAL (FIREBASE)");
-                        // console.log(check_auth_state());
-                    });
-                }
-                localStorage.removeItem("id_token");
+                logout();
                 toastr.error("Invalid token, Re Login","Error");
                 setTimeout(function () {
                     location.href = pretty('?module=login');
@@ -124,6 +116,23 @@ function load_menu(){
         '</div>'
         );
     }  
+}
+
+function logout(){
+    carrito=localStorage.cart;
+    console.log(carrito);
+    insert_cart(carrito)
+    .then(function(data){
+        console.log(data);
+        if(check_auth_state()){
+            firebase.auth().signOut()
+            .then(function(){
+                console.log("LOGOUT DE SOCIAL (FIREBASE)");
+                // console.log(check_auth_state());
+            });
+        }
+        localStorage.removeItem("id_token");
+    })
 }
 $(document).ready(function(){
     load_menu();

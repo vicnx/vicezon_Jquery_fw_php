@@ -42,7 +42,7 @@
 
 <!-- CART FALTA POR MODIFICAR--> 
 <!-- solo lo necesario -->
-<!-- <script src="module/client/module/cart/view/js/cart.js"></script> -->
+<script src="/vicezon_fw_php/modules/client/modules/cart/view/js/cart.js"></script>
 <!-- ACTIVITY LOGIN FALTA POR MODIFICAR-->
 <!-- <script type="text/javascript" src="module/login/view/js/user_control.js"></script> -->
 <!-- APIS -->

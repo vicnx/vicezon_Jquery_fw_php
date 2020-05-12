@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<functions>
+    <function>
+        <name>list_cart</name>
+        <uri>list_cart</uri>
+    </function>
+    <function>
+        <name>check_stock</name>
+        <uri>check_stock</uri>
+    </function>
+    <function>
+        <name>insert_cart_bd</name>
+        <uri>insert_cart_bd</uri>
+    </function>
+    <function>
+        <name>get_products_cart_local</name>
+        <uri>get_products_cart_local</uri>
+    </function>
+    <function>
+        <name>coger_cart_bd</name>
+        <uri>coger_cart_bd</uri>
+    </function>
+    <function>
+        <name>checkout_check_stock</name>
+        <uri>checkout_check_stock</uri>
+    </function>
+    <function>
+        <name>checkout_buy</name>
+        <uri>checkout_buy</uri>
+    </function>
+</functions>

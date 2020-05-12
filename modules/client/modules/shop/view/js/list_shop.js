@@ -271,6 +271,10 @@ function getdetails(){
         var idproductthis=$(this).closest('.itemlist').attr("id");
         if($(event.target).is('.fa-heart')){
             favs_control($(this),$(this).closest('.itemlist').attr("id"));
+        }else if($(event.target).is('.fa-shopping-cart')){
+            console.log(idproductthis,$(this));
+            // save_product_on_cart("2");
+            save_product_on_cart(idproductthis);
         }else{
             var idproduct= $(this).attr("id");
             localStorage.setItem("product", idproduct);

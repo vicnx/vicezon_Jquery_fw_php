@@ -244,6 +244,7 @@ function form_login_submit(){
                         $("#login_msg").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>LOGEADO CORRECTAMENTE</div>');
                         setTimeout(' window.location.href = "index.php";',1000);
                         console.log(response);
+                        coger_carrito_bd();
                     }else{
                         $("#login_msg").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>COMPRUEBA LOS DATOS INTRODUCIDOS</div>');
                     }

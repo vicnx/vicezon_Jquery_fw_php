@@ -97,4 +97,13 @@
         //PROFILE/MODEL/MODEL (SITE_ROOT)
         define('CLIENT_MODEL_PROFILE', CLIENT_MODULES_PATH . 'profile/model/model/');
         define('CLIENT_UTILS_PROFILE', CLIENT_MODULES_PATH . 'profile/utils/');
+
+        //MODULE CART
+        //VIEW PATH login (view del login) (SITE_ROOT)
+        define('CLIENT_CART_VIEW_PATH', CLIENT_MODULES_PATH . 'cart/view/');
+        //seach PATH (SITE_PATH)
+        define('CLIENT_CART_PATH', CLIENT_SITE_PATH . 'modules/cart/');
+        //CART/MODEL/MODEL (SITE_ROOT)
+        define('CLIENT_MODEL_CART', CLIENT_MODULES_PATH . 'cart/model/model/');
+        define('CLIENT_UTILS_CART', CLIENT_MODULES_PATH . 'cart/utils/');
 ?>

@@ -2,7 +2,7 @@ function menu_clicks(){
     console.log("MENU CLICKS LOADED")
     //boton cart
     $("#cart_menu").on("click",function(){
-        location.href = "index.php?page=cart";
+        location.href = pretty('?module=cart');
     })
     //boton profile\
     $("#profile").on("click",function(){
@@ -10,30 +10,26 @@ function menu_clicks(){
     })
     //boton logout va al controlador del login
     $("#logout").on("click",function(){
-        if(check_auth_state()){
-            firebase.auth().signOut()
-            .then(function(){
-                console.log("LOGOUT DE SOCIAL (FIREBASE)");
-                // console.log(check_auth_state());
-            });
-        }
-        localStorage.removeItem("id_token");
-        location.href = pretty('?module=home');
-    //     carrito=localStorage.cart;
-    //     console.log(carrito);
-    //     insert_cart(carrito)
-    //     .then(function(data){
-    //         $.ajax({ 
-    //             type: 'GET', 
-    //             url: 'module/login/controller/clogin.php?op=logout',
-    //             success: function (data) { 
-    //                 location.href = "index.php";
-    //             },
-    //             error: function(){
-    //                 console.log("error");
-    //             }
-    //         });
-    //     })
+        logout();
+        toastr.success("Desconectado con existo","Logout");
+        setTimeout(function () {
+            location.href = pretty('?module=home');
+        }, 1000);
+        // carrito=localStorage.cart;
+        // console.log(carrito);
+        // insert_cart(carrito)
+        // .then(function(data){
+        //     $.ajax({ 
+        //         type: 'GET', 
+        //         url: 'module/login/controller/clogin.php?op=logout',
+        //         success: function (data) { 
+        //             location.href = "index.php";
+        //         },
+        //         error: function(){
+        //             console.log("error");
+        //         }
+        //     });
+        // })
     })
     $("#login").on("click",function(){
         location.href = pretty('?module=login');
