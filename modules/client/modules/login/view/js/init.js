@@ -69,6 +69,7 @@ function load_menu(){
                         saldo();
                     });
                     $.getScript( "/vicezon_fw_php/modules/client/modules/profile/view/js/cprofile.js", function() {
+                        add_saldo();
                         profile();
                     });
                     
@@ -115,10 +116,15 @@ function load_menu(){
             '<a id="register" class="dropdown-item">Register</a>'+
         '</div>'
         );
+        // $.getScript( "/vicezon_fw_php/modules/client/modules/profile/view/js/cprofile.js", function() {
+        //     profile();
+        // });
+        menu_clicks();
     }  
 }
 
 function logout(){
+    console.log("LOGOUT!")
     carrito=localStorage.cart;
     console.log(carrito);
     insert_cart(carrito)

@@ -58,4 +58,20 @@
 			}
 			// echo json_encode($data);
 		}
+		function get_facturas(){
+			$token=$_POST['token'];
+			$result=loadModel(CLIENT_MODEL_PROFILE, "profile_model", "get_facturas",$token);
+			echo json_encode($result);
+		}
+
+		function more_facturas(){
+			$idfact=$_POST['idfact'];
+			$result=loadModel(CLIENT_MODEL_PROFILE, "profile_model", "more_facturas",$idfact);
+			echo json_encode($result);
+		}
+		function product_info(){
+			$idproduct=$_POST['idproduct'];
+			$result=loadModel(CLIENT_MODEL_PROFILE, "profile_model", "product_info",$idproduct);
+			echo json_encode($result);
+		}
 	}

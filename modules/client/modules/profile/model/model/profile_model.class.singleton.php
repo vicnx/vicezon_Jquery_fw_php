@@ -40,4 +40,15 @@ class profile_model {
     public function insert_money($data){
         return $this->bll->insert_money_BLL($data);
     }
+
+    public function get_facturas($token){
+        return $this->bll->get_facturas_BLL($token);
+    }
+    public function more_facturas($idfact){
+        return $this->bll->more_facturas_BLL($idfact);
+    }
+
+    public function product_info($idproduct){
+        return $this->bll->product_info_BLL($idproduct);
+    }
 }

@@ -242,43 +242,21 @@ function form_login_submit(){
                     localStorage.setItem('id_token',response_json['token_jwt']);
                     if(response_json['response']=="datos_validos"){
                         $("#login_msg").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>LOGEADO CORRECTAMENTE</div>');
-                        setTimeout(' window.location.href = "index.php";',1000);
+                        if(localStorage.getItem('last_page')!=null){
+                            console.log("dwwdadaw");
+                            page=localStorage.getItem('last_page');
+                            if(page=='carrito'){
+                                setTimeout(' window.location.href = pretty("?module=cart");',1000);
+                                localStorage.removeItem('last_page');
+                            }
+                        }else{
+                            setTimeout(' window.location.href = pretty("?module=home");',1000);
+                        }
                         console.log(response);
                         coger_carrito_bd();
                     }else{
                         $("#login_msg").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>COMPRUEBA LOS DATOS INTRODUCIDOS</div>');
                     }
-                    
-                    //falta el carrito con promesas.
-			   	// 	console.log(response)		
-				// 	if(response=="vale"){	
-                //         coger_carrito_bd()//busca el carrito en bd de ese usuario
-                //         .then(function(data){
-                //             console.log(data);
-                //             $("#login_msg").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>LOGEADO CORRECTAMENTE</div>');
-                //             setTimeout(' window.location.href = "index.php";',1000);
-                //             console.log(response);
-                //         })				
-                //     }else if(response=="carrito"){
-                //         coger_carrito_bd()//busca el carrito en bd de ese usuario
-                //         .then(function(data){
-                //             console.log(data);
-                //             $("#login_msg").html('<div class="alert alert-success"> <span class="glyphicon glyphicon-info-sign"></span>LOGEADO CORRECTAMENTE</div>');
-                //             setTimeout(' window.location.href = "index.php?page=cart";',1000);
-                //             console.log(response);
-                //         })
-                //         $.ajax({ 
-                //                 type: 'GET', 
-                //                 url: 'module/client/module/cart/controller/ccart.php?op=destroy_cart_session',
-                //             })
-                //             .done(function( data) {
-                //                 console.log("data");
-                //             });
-                //         console.log("va al carrito");
-                //     }
-                //     else{					
-				// 		$("#login_msg").html('<div class="alert alert-danger"> <span class="glyphicon glyphicon-info-sign"></span>COMPRUEBA LOS DATOS INTRODUCIDOS</div>');
-				// 	}
 				}
 			});
         }

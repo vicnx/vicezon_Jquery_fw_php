@@ -38,5 +38,21 @@
 		public function insert_money_BLL($data){
 			return $this->dao->insert_money($this->db,$data);
 		}
+		public function get_facturas_BLL($token){
+			return $this->dao->get_facturas($this->db,$token);
+		}
+
+		public function more_facturas_BLL($idfact){
+			// return $idfact;
+			return $this->dao->more_facturas($this->db,$idfact);
+		}
+
+		
+		public function product_info_BLL($idproduct){
+			// return $idfact;
+			return $this->dao->product_info($this->db,$idproduct);
+		}
+
+		
 		
 	}

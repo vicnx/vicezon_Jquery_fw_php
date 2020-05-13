@@ -59,5 +59,30 @@ class profile_dao {
         return $db->ejecutar($sql);
     }
 
+    public function get_facturas($db,$token) {
+        $json = decode_token($token);
+        $id_user=  json_decode($json)->name;
+        $sql="SELECT * FROM facturas Where id_user='$id_user'";
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+
+    public function more_facturas($db,$idfact) {
+        // $json = decode_token($token);
+        // $id_user=  json_decode($json)->name;
+        $sql="SELECT * FROM factura_linea Where idfactura='$idfact'";
+
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+
+    public function product_info($db,$idproduct) {
+        // $json = decode_token($token);
+        // $id_user=  json_decode($json)->name;
+        $sql="SELECT * FROM Tablets Where idproduct in ($idproduct) ORDER BY idproduct ASC";
+        $stmt = $db->ejecutar($sql);
+        return $db->listar($stmt);
+    }
+
     
 }

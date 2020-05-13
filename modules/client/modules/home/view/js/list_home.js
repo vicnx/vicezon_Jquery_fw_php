@@ -73,6 +73,10 @@ function onclick_item(){
         var idproductthis=$(this).attr("id");
         if($(event.target).is('.fa-heart')){
             favs_control($(this),idproductthis);
+        }else if($(event.target).is('.fa-shopping-cart')){
+            console.log(idproductthis,$(this));
+            // save_product_on_cart("2");
+            save_product_on_cart(idproductthis);
         }else{
             var idproduct= $(this).attr("id");
             localStorage.setItem("product", idproduct);
@@ -81,37 +85,6 @@ function onclick_item(){
     })
     
     console.log("HOME: onclick_item loaded");
-    // $('.item').on('click',function(e){
-    //     e.preventDefault();
-    //     e.stopImmediatePropagation();//esto evita que se realice 2 veces al hacer CLICK!
-    //     var idproduct= $(this).attr("id");
-    //     localStorage.setItem("product", idproduct);
-    //     window.location.href = pretty('?module=shop');
-    //     var idproductthis=$(this).attr("id");
-    //     console.log(idproductthis);
-    //     if($(event.target).is('.fa-heart')){
-    //         console.log(event.target);
-    //         favs_control($(this),$(this).closest('.itemlist').attr("id"));
-    //     }else{
-    //         var idproduct= $(this).attr("id");
-    //         localStorage.setItem("product", idproduct);
-    //         // window.location.href = "index.php?page=shop";
-    //     }
-        // DESCOMENTAR CON  CART
-        // var idproductthis=$(this).attr("id");
-        // console.log(idproductthis);
-        // if($(event.target).is('.fa-heart')){
-        //     favs_control($(this),$(this).closest('.itemlist').attr("id"));
-        // }else if($(event.target).is('.fa-shopping-cart')){
-        //     console.log(idproductthis,$(this));
-        //     // save_product_on_cart("2");
-        //     save_product_on_cart(idproductthis);
-        // }else{
-        //     var idproduct= $(this).attr("id");
-        //     localStorage.setItem("product", idproduct);
-        //     window.location.href = "index.php?page=shop";
-        // }
-    // })
 };
 
 

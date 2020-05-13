@@ -69,6 +69,8 @@
 .shop{
     display: flex;
     flex-direction: row;
+    margin-top: 20px;
+    height: 100%;
 }
 .filters{
     float: right;

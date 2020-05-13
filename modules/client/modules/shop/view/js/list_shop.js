@@ -344,11 +344,11 @@ function clicks_details(){
         var idproduct=($(this).parent().attr('id'));
         favs_control($(this).closest('.infoproduct'),idproduct);
     })
-    //click cart
-    // $('.infoproduct').on('click','.fa-shopping-cart',function(event){
-    //     var idproduct=($(this).parent().attr('id'));
-    //     save_product_on_cart(idproduct);
-    // })
+    // click cart
+    $('.infoproduct').on('click','.fa-shopping-cart',function(event){
+        var idproduct=($(this).parent().attr('id'));
+        save_product_on_cart(idproduct);
+    })
 }
 
 $(document).ready(function() {

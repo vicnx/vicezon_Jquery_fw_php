@@ -24,4 +24,16 @@
         <name>check_code</name>
         <uri>check_code</uri>
     </function>
+    <function>
+        <name>get_facturas</name>
+        <uri>get_facturas</uri>
+    </function>
+    <function>
+        <name>more_facturas</name>
+        <uri>more_facturas</uri>
+    </function>
+    <function>
+        <name>product_info</name>
+        <uri>product_info</uri>
+    </function>
 </functions>

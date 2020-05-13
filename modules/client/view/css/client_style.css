@@ -50,12 +50,9 @@ html {
     margin: 2% auto;
 	height: 100%;
 }
-/* .footer {
-	text-align: center;
-    background-color: #333;
-    position: absolute;
-    width: 100%;
-  } */
+.footer {
+    margin-top: 30px;
+  }
   .navbar .dropdown-menu a{
       color: white !important;
   }

@@ -185,7 +185,7 @@ function checkout(){
                 }
             })
         }else{
-            localStorage.setItem('last_module')='cart';
+            localStorage.setItem('last_page', "carrito");
             toastr.error("Haz el login primero!","Error");
             setTimeout(function () {
                 location.href = pretty('?module=login');
