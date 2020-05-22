@@ -205,7 +205,7 @@ function news_tablets(){
     function news_home(for_lenght = 4){
         $("#news_home_content").empty();
         $.ajax({
-            url: Apis.news,
+            url: "https://cors-anywhere.herokuapp.com/"+Apis.news, //para evitar el error de cors
             success(json) {
                 // console.log(json.articles)
                 for (var i = 0; i < for_lenght; i++) {

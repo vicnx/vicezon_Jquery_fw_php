@@ -7,7 +7,7 @@ header{
     display: flex;
     align-items: center;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-    background-image: url(/vicezon/module/client/module/home/view/img/header2.jpg);
+    background-image: url(/vicezon_fw_php/modules/client/modules/home/view/img/header2.jpg);
     background-size: cover;
 }
 header:before {

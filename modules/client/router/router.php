@@ -2,6 +2,7 @@
 require_once("paths.php");
 require 'autoload.php';
 
+
 function handlerRouter() {
     // echo "HandleRouter CLient";
     if (!empty($_GET['module'])) {
