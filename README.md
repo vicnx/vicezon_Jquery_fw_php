@@ -32,6 +32,8 @@ https://www.alvarolara.com/2013/06/14/instalar-apache-php-mysql-y-phpmyadmin-en-
 ![Image of Cart](https://i.imgur.com/kfyJUI9.gif)
 #### Profile
 ![Image of Cart](https://i.imgur.com/bzDSuvf.gif)
+#### Login con google y generar codigos de saldo
+![Image of Cart](https://imgur.com/tvrDQP9.gif)
 
 ## Tecnologias
 * [JavaScript](https://developer.mozilla.org/es/docs/Web/JavaScript)
