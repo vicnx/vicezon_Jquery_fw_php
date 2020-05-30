@@ -1,6 +1,7 @@
 # Vicezon con FW PHP
 
-> Proyecto de una tienda de tecnologia online, migrada al framework php
+> Proyecto de una tienda de tecnologia online, migrada al framework php.
+> Social login añadido y añadir saldo.
 
 ## Instrucciones para instalar: 📋
 
