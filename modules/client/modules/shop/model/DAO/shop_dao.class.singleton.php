@@ -72,7 +72,7 @@ class shop_dao {
     }
 
     public function select_one_product($db,$idproduct){
-        $sql = "SELECT * FROM Tablets Where idproduct=$idproduct";
+        $sql = "SELECT * FROM tablets Where idproduct=$idproduct";
 
         $stmt = $db->ejecutar($sql);
         return $db->listar($stmt);
@@ -85,7 +85,7 @@ class shop_dao {
 
     public function addview_brand($db,$idproduct){
         $sql = "Update brands b
-        inner join Tablets t
+        inner join tablets t
         on marca=idbrand
         Set b.views=b.views+1
         where idproduct = $idproduct";

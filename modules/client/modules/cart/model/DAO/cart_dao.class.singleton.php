@@ -16,7 +16,7 @@ class cart_dao {
     //carousel
     public function select_product($db,$idproduct) {
         // return "dentro select";
-        $sql = "SELECT * FROM Tablets Where idproduct in ($idproduct) ORDER BY idproduct ASC";
+        $sql = "SELECT * FROM tablets Where idproduct in ($idproduct) ORDER BY idproduct ASC";
         $stmt = $db->ejecutar($sql);
         return $db->listar($stmt);
     }
