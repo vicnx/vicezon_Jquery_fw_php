@@ -14,7 +14,6 @@ function initMap() {
           '</p>'+
           '</div>'+
           '</div>';
-  
           var infowindow = new google.maps.InfoWindow({
               content: contentString
             });
