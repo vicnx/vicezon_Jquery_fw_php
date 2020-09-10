@@ -1,5 +1,5 @@
 <?php
-//test
+//test2
 /*
  * Copyright(c)2011 Miguel Angel Nubla Ruiz (miguelangel.nubla@gmail.com). All rights reserved
  */
